@@ -89,13 +89,8 @@ export default function Hero() {
           
           {/* Image Side */}
           <div className="order-1 lg:order-2 relative flex justify-center">
-            {/* Background Circle */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-[280px] h-[280px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full bg-gradient-to-br from-gray-100 to-gray-200"></div>
-            </div>
-            
             {/* Founder Image */}
-            <div className="relative z-10">
+            <div className="relative">
               <img
                 src={founderImage}
                 alt="مؤسس سُليمان"
