@@ -1,24 +1,40 @@
 # Overview
 
-This is an ultra-premium Arabic (RTL) luxury agency website called "سليمان" designed with a BLACK × GOLD theme (#0A0A0A, #111 backgrounds with #F2C400 gold accents). The application is a full-stack web platform showcasing services, portfolio, client testimonials, and an e-commerce store for digital products. It features a mobile-first responsive design with smooth animations, elegant hover effects, and premium styling.
+This is an Arabic (RTL) luxury agency website called "سُليمان" designed to match the Makaseb.sa website style with a CREAM/YELLOW/BLACK color scheme. The website features a cream/off-white background (#FDFBF7) with yellow (#F2C400) and black accents matching the logo colors. It includes a dark header to display the white logo, 8-section landing page structure, PayPal integration, WhatsApp widget, and showcases 5 service categories.
 
 # Recent Changes (December 2024)
 
-- **Logo sizing**: Enlarged to h-12 mobile / h-14 desktop in Header and Footer for better visibility
-- **Hero Section**: Removed min-h-screen (causing empty gaps), using py-24/32/40 padding, reduced background orbs from 600px/500px to 300px/250px
-- **ClientMarquee**: Redesigned with premium client cards (icons, names, categories, star ratings), stats section (+500 clients, +200 stores, 300% growth, +50 awards), and trust badges
-- **Products**: Created comprehensive 30-product catalog in `server/products-data.ts` covering:
-  - متاجر سلة (Salla stores): 3 products
-  - متاجر زد (Zid stores): 3 products
-  - متاجر شوبيفاي (Shopify stores): 3 products
-  - موشن جرافيك (Motion graphics): 8 products
-  - مواقع المحامين (Lawyer websites): 6 products
-  - خدمات أخرى (Additional services): 7 products
-- **WhatsApp Widget**: Integrated with phone number +201007835547
+- **Complete Design Overhaul**: Transformed from BLACK × GOLD dark luxury theme to CREAM/YELLOW/BLACK light Makaseb-inspired design
+- **Color System**: Updated CSS variables - background: #FDFBF7 (cream), primary: #F2C400 (yellow), foreground: #1A1A1A (black)
+- **Dark Header**: Changed to #1A1A1A dark background to accommodate white logo with sticky navigation
+- **Hero Section**: Redesigned with founder image, stat badges (150+ متجر, 500+ عميل), and 7 platform logos
+- **Three Steps Section**: New component showcasing 3-step integration process for client growth
+- **Services Section**: 5 categories aligned with user requirements (E-commerce, Motion Graphics, Marketing, Programming, Lawyer Platforms)
+- **Right Place Section**: 4 benefit cards for different target audiences
+- **Stats Section**: Animated counters with dark gradient background
+- **CTA Section**: Contact call-to-action with phone and WhatsApp buttons
+- **Footer**: Dark styling with correct phone number (+201007835547) and social links
+- **WhatsApp Widget**: Green floating button with phone number +201007835547
+
+# Contact Information
+
+- **Phone/WhatsApp**: +201007835547
+- **Company Name**: سُليمان
 
 # User Preferences
 
 Preferred communication style: Simple, everyday language.
+
+# Landing Page Sections
+
+1. **Header** - Dark sticky header with white logo and navigation links
+2. **Hero** - Founder image with statistics and platform logos
+3. **Three Steps** - Integration process overview
+4. **Services** - 5 service category cards
+5. **Right Place** - 4 target audience benefit cards
+6. **Stats** - Animated statistics counters
+7. **CTA** - Contact call-to-action
+8. **Footer** - Company info, social links, contact details
 
 # System Architecture
 
@@ -34,7 +50,7 @@ Preferred communication style: Simple, everyday language.
 - Radix UI primitives for accessible, unstyled components (dialogs, dropdowns, tooltips, etc.)
 - shadcn/ui component library with "new-york" style variant
 - Tailwind CSS for utility-first styling with extensive custom theme configuration
-- Custom CSS variables for clean white/light theme with gold (#F2C400) accents
+- Custom CSS variables for cream/white theme with yellow (#F2C400) accents
 - Subtle shadows, elegant hover effects, and smooth transitions
 
 **State Management & Data Fetching**
@@ -46,9 +62,9 @@ Preferred communication style: Simple, everyday language.
 - RTL (Right-to-Left) layout for Arabic language support
 - Arabic fonts: Tajawal and Cairo from Google Fonts
 - Consistent spacing system: 8px, 16px, 24px
-- Clean white backgrounds with subtle gray tones and gold accents
+- Cream/off-white backgrounds (#FDFBF7) with yellow and black accents
 - Smooth scroll-triggered animations and hover effects
-- Dark footer with white logo for contrast
+- Dark header (#1A1A1A) and footer (black) with white logo for contrast
 
 ## Backend Architecture
 
