@@ -132,7 +132,7 @@ export default function Hero() {
           >
             <div className="relative w-full max-w-md">
               {/* Main card */}
-              <div className="relative bg-white rounded-2xl p-8 shadow-2xl border border-border">
+              <div className="relative bg-card rounded-2xl p-8 shadow-2xl border border-primary/40">
                 {/* Header */}
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -146,19 +146,19 @@ export default function Hero() {
 
                 {/* Stats grid */}
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-primary/20 to-primary/10 border border-primary/30">
                     <span className="text-sm text-muted-foreground">تصميم الهويات</span>
                     <span className="text-lg font-bold text-primary">50+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-secondary/20 to-secondary/10 border border-secondary/30">
                     <span className="text-sm text-muted-foreground">المتاجر المطورة</span>
-                    <span className="text-lg font-bold text-primary">120+</span>
+                    <span className="text-lg font-bold text-secondary">120+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-accent/20 to-accent/10 border border-accent/30">
                     <span className="text-sm text-muted-foreground">حملات إعلانية</span>
-                    <span className="text-lg font-bold text-primary">200+</span>
+                    <span className="text-lg font-bold text-accent">200+</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-primary/15 to-secondary/15 border border-primary/20">
                     <span className="text-sm text-muted-foreground">العملاء النشطين</span>
                     <span className="text-lg font-bold text-primary">500+</span>
                   </div>
