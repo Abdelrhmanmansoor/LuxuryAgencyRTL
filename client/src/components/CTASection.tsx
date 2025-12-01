@@ -44,20 +44,12 @@ export default function CTASection() {
           
           {/* Image Side */}
           <div className="relative flex justify-center lg:justify-start order-first lg:order-last">
-            <div className="relative">
-              {/* Background Circle */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[250px] h-[250px] md:w-[350px] md:h-[350px] rounded-full bg-gradient-to-br from-gray-100 to-gray-200"></div>
-              </div>
-              
-              {/* Founder Image */}
-              <img
-                src={founderImage}
-                alt="فريق سُليمان"
-                className="relative z-10 w-full max-w-[300px] md:max-w-[400px] h-auto object-contain"
-                data-testid="img-cta-founder"
-              />
-            </div>
+            <img
+              src={founderImage}
+              alt="فريق سُليمان"
+              className="w-full max-w-[300px] md:max-w-[400px] h-auto object-contain"
+              data-testid="img-cta-founder"
+            />
           </div>
         </div>
       </div>
