@@ -1,8 +1,19 @@
 {
   "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
   "installCommand": "npm install",
+  "framework": null,
   "env": {
     "SESSION_SECRET": "@SESSION_SECRET"
   },
-  "regions": ["iad1"]
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api"
+    },
+    {
+      "source": "/:path*",
+      "destination": "/index.html"
+    }
+  ]
 }
