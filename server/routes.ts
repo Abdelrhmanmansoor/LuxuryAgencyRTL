@@ -142,15 +142,30 @@ export async function registerRoutes(
 
   // PayPal routes
   app.get("/api/paypal/setup", async (req, res) => {
-    await loadPaypalDefault(req, res);
+    try {
+      await loadPaypalDefault(req, res);
+    } catch (error) {
+      console.error("PayPal setup error:", error);
+      res.status(500).json({ error: "PayPal initialization failed" });
+    }
   });
 
   app.post("/api/paypal/order", async (req, res) => {
-    await createPaypalOrder(req, res);
+    try {
+      await createPaypalOrder(req, res);
+    } catch (error) {
+      console.error("PayPal order creation error:", error);
+      res.status(500).json({ error: "Failed to create PayPal order" });
+    }
   });
 
   app.post("/api/paypal/order/:orderID/capture", async (req, res) => {
-    await capturePaypalOrder(req, res);
+    try {
+      await capturePaypalOrder(req, res);
+    } catch (error) {
+      console.error("PayPal capture error:", error);
+      res.status(500).json({ error: "Failed to capture PayPal order" });
+    }
   });
 
   return httpServer;
