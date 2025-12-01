@@ -1,14 +1,12 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Stats from "@/components/Stats";
+import ThreeSteps from "@/components/ThreeSteps";
 import Services from "@/components/Services";
-import FeaturedProducts from "@/components/FeaturedProducts";
-import Portfolio from "@/components/Portfolio";
-import ClientMarquee from "@/components/ClientMarquee";
-import FeaturedStores from "@/components/FeaturedStores";
-import Testimonials from "@/components/Testimonials";
-import CTAStrip from "@/components/CTAStrip";
+import RightPlace from "@/components/RightPlace";
+import Stats from "@/components/Stats";
+import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 export default function Home() {
   return (
@@ -16,16 +14,14 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Stats />
+        <ThreeSteps />
         <Services />
-        <FeaturedProducts />
-        <Portfolio />
-        <ClientMarquee />
-        <FeaturedStores />
-        <Testimonials />
-        <CTAStrip />
+        <RightPlace />
+        <Stats />
+        <CTASection />
       </main>
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 }
