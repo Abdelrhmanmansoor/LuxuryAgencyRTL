@@ -6,13 +6,35 @@ export const productSchema = z.object({
   name: z.string(),
   nameEn: z.string(),
   description: z.string(),
+  fullDescription: z.string().optional(),
+  features: z.array(z.string()).optional(),
   price: z.number(),
+  originalPrice: z.number().optional(),
   currency: z.string().default("SAR"),
   image: z.string(),
   category: z.string(),
+  purchaseCount: z.number().default(0),
+  isFeatured: z.boolean().default(false),
+  packages: z.array(z.object({
+    name: z.string(),
+    price: z.number(),
+    description: z.string(),
+  })).optional(),
 });
 
 export type Product = z.infer<typeof productSchema>;
+
+// Order request schema
+export const orderRequestSchema = z.object({
+  productId: z.number(),
+  packageName: z.string().optional(),
+  whatsapp: z.string().min(10, "رقم الواتساب مطلوب"),
+  hasStore: z.enum(["yes", "no"]),
+  hasCommercialRegister: z.enum(["yes", "no"]).optional(),
+  notes: z.string().optional(),
+});
+
+export type OrderRequest = z.infer<typeof orderRequestSchema>;
 
 // Portfolio project schema
 export const portfolioSchema = z.object({

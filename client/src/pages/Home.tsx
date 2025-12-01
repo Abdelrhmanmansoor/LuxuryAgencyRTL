@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
+import FeaturedProducts from "@/components/FeaturedProducts";
 import Portfolio from "@/components/Portfolio";
 import ClientMarquee from "@/components/ClientMarquee";
 import FeaturedStores from "@/components/FeaturedStores";
@@ -17,6 +18,7 @@ export default function Home() {
         <Hero />
         <Stats />
         <Services />
+        <FeaturedProducts />
         <Portfolio />
         <ClientMarquee />
         <FeaturedStores />

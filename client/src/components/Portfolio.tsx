@@ -85,26 +85,6 @@ const portfolioItems: Portfolio[] = [
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
     tools: ["Flutter", "HealthKit", "Firebase"],
   },
-  {
-    id: 9,
-    title: "متجر مجوهرات",
-    titleEn: "Jewelry Store",
-    category: "متجر إلكتروني",
-    categoryEn: "E-commerce",
-    description: "متجر مجوهرات فاخر مع عرض 360 درجة للمنتجات وتجربة AR",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80",
-    tools: ["React", "WebGL", "AR.js"],
-  },
-  {
-    id: 10,
-    title: "هوية شركة تقنية",
-    titleEn: "Tech Company Branding",
-    category: "هوية بصرية",
-    categoryEn: "Brand Identity",
-    description: "هوية بصرية حديثة لشركة تقنية ناشئة تعكس الابتكار والتطور",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    tools: ["Figma", "Illustrator", "Lottie"],
-  },
 ];
 
 export default function Portfolio() {
@@ -133,21 +113,15 @@ export default function Portfolio() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="py-20 md:py-32 bg-white relative overflow-hidden"
+      className="py-20 md:py-28 bg-muted/20 relative overflow-hidden"
       data-testid="section-portfolio"
     >
-      {/* Background decoration */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 right-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
-      </div>
-
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+        <div className={`text-center mb-12 md:mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0 px-4 py-1.5">
             أعمالنا
-          </span>
+          </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             مشاريع نفخر بها
           </h2>
@@ -156,15 +130,15 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* Portfolio Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+        {/* Portfolio Grid - Clean and Light */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
           {portfolioItems.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative rounded-2xl overflow-hidden cursor-pointer bg-white border border-border shadow-sm hover:shadow-xl transition-all duration-300 ${
+              className={`group relative rounded-xl overflow-hidden cursor-pointer bg-white border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${index * 0.05}s` }}
+              style={{ animationDelay: `${index * 0.04}s` }}
               onClick={() => setSelectedProject(project)}
               data-testid={`portfolio-item-${project.id}`}
             >
@@ -173,17 +147,17 @@ export default function Portfolio() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
 
-              {/* Content */}
+              {/* Content - Minimal and Clean */}
               <div className="p-4">
-                <Badge variant="secondary" className="mb-2 bg-primary/10 text-primary border-0">
+                <span className="text-xs font-medium text-primary mb-1.5 block">
                   {project.category}
-                </Badge>
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
+                </span>
+                <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
                   {project.title}
                 </h3>
               </div>
@@ -194,7 +168,7 @@ export default function Portfolio() {
 
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-3xl bg-white border-border p-0 overflow-hidden">
+        <DialogContent className="max-w-2xl bg-white border-border p-0 overflow-hidden">
           {selectedProject && (
             <>
               {/* Image */}
@@ -207,18 +181,14 @@ export default function Portfolio() {
               </div>
 
               {/* Content */}
-              <div className="p-6 md:p-8">
+              <div className="p-6">
                 <DialogHeader>
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary border-0">
-                        {selectedProject.category}
-                      </Badge>
-                      <DialogTitle className="text-2xl md:text-3xl font-bold text-foreground">
-                        {selectedProject.title}
-                      </DialogTitle>
-                    </div>
-                  </div>
+                  <span className="text-sm font-medium text-primary mb-2 block">
+                    {selectedProject.category}
+                  </span>
+                  <DialogTitle className="text-xl md:text-2xl font-bold text-foreground">
+                    {selectedProject.title}
+                  </DialogTitle>
                   <DialogDescription className="sr-only">
                     تفاصيل المشروع {selectedProject.title}
                   </DialogDescription>
@@ -229,11 +199,11 @@ export default function Portfolio() {
                 </p>
 
                 {/* Tools */}
-                <div className="mt-6">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-3">الأدوات المستخدمة</h4>
+                <div className="mt-5">
+                  <h4 className="text-sm font-medium text-muted-foreground mb-2">الأدوات المستخدمة</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.tools.map((tool) => (
-                      <Badge key={tool} variant="outline" className="border-border text-foreground">
+                      <Badge key={tool} variant="secondary" className="bg-muted text-foreground border-0">
                         {tool}
                       </Badge>
                     ))}
@@ -241,7 +211,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* View Project Button */}
-                <button className="mt-6 inline-flex items-center gap-2 text-primary font-medium hover:underline">
+                <button className="mt-5 inline-flex items-center gap-2 text-primary font-medium hover:underline">
                   <span>عرض المشروع</span>
                   <ExternalLink className="w-4 h-4" />
                 </button>
