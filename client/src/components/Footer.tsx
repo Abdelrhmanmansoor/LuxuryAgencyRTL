@@ -122,8 +122,9 @@ export default function Footer() {
                   href="tel:+201007835547" 
                   className="text-white/70 hover:text-primary transition-colors"
                   dir="ltr"
+                  data-testid="link-phone"
                 >
-                  +20 100 783 5547
+                  +201007835547
                 </a>
               </li>
               <li className="flex items-center gap-3">

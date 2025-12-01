@@ -33,7 +33,7 @@ export default function RightPlace() {
             أنت في المكان الصحيح
           </h2>
           <p className="text-lg text-primary font-semibold">
-            إذا كنت واحد من مؤلاء
+            إذا كنت واحداً من هؤلاء
           </p>
         </div>
 
