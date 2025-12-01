@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Sparkles, TrendingUp, Users, Award } from "lucide-react";
+import { ArrowLeft, Play, Sparkles, Star, Zap, TrendingUp, Award, Users } from "lucide-react";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -27,152 +27,153 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20"
       data-testid="section-hero"
     >
-      {/* Subtle background gradient orbs */}
+      {/* Animated background orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div
-          className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[100px]"
+          className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse-glow"
           style={{
             transform: `translate(${mousePosition.x * 2}px, ${mousePosition.y * 2}px)`,
           }}
         />
         <div
-          className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[80px]"
+          className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-secondary/8 rounded-full blur-[100px]"
           style={{
             transform: `translate(${-mousePosition.x * 1.5}px, ${-mousePosition.y * 1.5}px)`,
           }}
         />
         <div
-          className="absolute top-1/2 left-1/2 w-[600px] h-[600px] bg-muted/50 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"
+          className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"
+        />
+        
+        {/* Grid pattern */}
+        <div 
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `linear-gradient(hsl(265 85% 65%) 1px, transparent 1px), linear-gradient(90deg, hsl(265 85% 65%) 1px, transparent 1px)`,
+            backgroundSize: '60px 60px'
+          }}
         />
       </div>
 
+      {/* Floating elements */}
+      <div className="absolute top-32 right-20 animate-float hidden lg:block" style={{ animationDelay: "0s" }}>
+        <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
+          <Star className="w-8 h-8 text-primary" />
+        </div>
+      </div>
+      <div className="absolute bottom-40 left-20 animate-float hidden lg:block" style={{ animationDelay: "1s" }}>
+        <div className="w-14 h-14 rounded-2xl bg-secondary/20 border border-secondary/30 flex items-center justify-center">
+          <Zap className="w-6 h-6 text-secondary" />
+        </div>
+      </div>
+      <div className="absolute top-1/2 right-10 animate-float hidden lg:block" style={{ animationDelay: "2s" }}>
+        <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
+          <Sparkles className="w-5 h-5 text-accent" />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-          {/* Content - Right side in RTL */}
-          <div className="order-2 lg:order-1 text-center lg:text-right">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-up">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
-                وكالة تسويق رقمي خليجية
-              </span>
-            </div>
-
-            {/* Main Title */}
-            <h1
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              <span className="text-foreground">نمي مشروعك</span>
-              <br />
-              <span className="text-primary">
-                مع أفضل الحلول الرقمية
-              </span>
-            </h1>
-
-            {/* Subtitle */}
-            <p
-              className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              وكالة تسويق رقمي سعودية متخصصة في بناء العلامات التجارية الفاخرة والحلول الرقمية المبتكرة
-            </p>
-
-            {/* CTA Buttons */}
-            <div
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="h-14 px-8 text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow"
-                  data-testid="button-hero-cta"
-                >
-                  ابدأ مشروعك الآن
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                </Button>
-              </Link>
-              <Link href="/#portfolio">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="h-14 px-8 text-lg font-semibold"
-                  data-testid="button-hero-portfolio"
-                >
-                  شاهد محفظتنا
-                </Button>
-              </Link>
-            </div>
-
-            {/* Trust indicators */}
-            <div
-              className="flex flex-wrap items-center gap-6 mt-10 justify-center lg:justify-start animate-fade-up"
-              style={{ animationDelay: "0.4s" }}
-            >
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-primary" />
-                <span className="text-sm text-muted-foreground font-semibold">+500 عميل سعيد</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <TrendingUp className="w-5 h-5 text-primary" />
-                <span className="text-sm text-muted-foreground font-semibold">نمو 300%</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award className="w-5 h-5 text-primary" />
-                <span className="text-sm text-muted-foreground font-semibold">+50 جائزة</span>
-              </div>
-            </div>
+        <div className="max-w-5xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary/10 border border-primary/20 mb-8 animate-fade-up">
+            <Sparkles className="w-4 h-4 text-primary" />
+            <span className="text-sm font-medium text-primary">
+              الوكالة الرقمية الأولى في الخليج
+            </span>
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
           </div>
 
-          {/* Stats Section - Left side in RTL */}
+          {/* Main Title */}
+          <h1
+            className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.1] mb-8 animate-fade-up"
+            style={{ animationDelay: "0.1s" }}
+          >
+            <span className="text-foreground">نحوّل أفكارك إلى</span>
+            <br />
+            <span className="gradient-text">
+              تجارب رقمية استثنائية
+            </span>
+          </h1>
+
+          {/* Subtitle */}
+          <p
+            className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-10 max-w-3xl mx-auto animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
+            نصمم ونبني علامات تجارية فاخرة، متاجر إلكترونية احترافية، 
+            وحملات تسويقية تحقق نتائج استثنائية
+          </p>
+
+          {/* CTA Buttons */}
           <div
-            className="order-1 lg:order-2 flex justify-center animate-fade-up"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up"
+            style={{ animationDelay: "0.3s" }}
+          >
+            <Link href="/contact">
+              <Button
+                size="lg"
+                className="h-14 px-10 text-lg font-bold btn-glow"
+                data-testid="button-hero-cta"
+              >
+                ابدأ مشروعك الآن
+                <ArrowLeft className="w-5 h-5 mr-2" />
+              </Button>
+            </Link>
+            <Link href="/#portfolio">
+              <Button
+                variant="outline"
+                size="lg"
+                className="h-14 px-10 text-lg font-semibold border-primary/30 hover:bg-primary/10"
+                data-testid="button-hero-portfolio"
+              >
+                <Play className="w-5 h-5 ml-2" />
+                شاهد أعمالنا
+              </Button>
+            </Link>
+          </div>
+
+          {/* Stats Row */}
+          <div
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto animate-fade-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <div className="relative w-full max-w-md">
-              {/* Main card */}
-              <div className="relative bg-card rounded-2xl p-8 shadow-2xl border border-primary/40">
-                {/* Header */}
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <Sparkles className="w-7 h-7 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground">خدماتنا</h3>
-                    <p className="text-sm text-muted-foreground">متكاملة وشاملة</p>
-                  </div>
-                </div>
-
-                {/* Stats grid */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-primary/20 to-primary/10 border border-primary/30">
-                    <span className="text-sm text-muted-foreground">تصميم الهويات</span>
-                    <span className="text-lg font-bold text-primary">50+</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-secondary/20 to-secondary/10 border border-secondary/30">
-                    <span className="text-sm text-muted-foreground">المتاجر المطورة</span>
-                    <span className="text-lg font-bold text-secondary">120+</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-accent/20 to-accent/10 border border-accent/30">
-                    <span className="text-sm text-muted-foreground">حملات إعلانية</span>
-                    <span className="text-lg font-bold text-accent">200+</span>
-                  </div>
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-primary/15 to-secondary/15 border border-primary/20">
-                    <span className="text-sm text-muted-foreground">العملاء النشطين</span>
-                    <span className="text-lg font-bold text-primary">500+</span>
-                  </div>
-                </div>
-
-                {/* Floating badges */}
-                <div className="absolute -top-4 -right-4 px-3 py-1.5 bg-primary rounded-full text-white text-xs font-bold shadow-lg">
-                  الأفضل في الخليج
-                </div>
+            <div className="p-6 rounded-2xl bg-card/50 border border-primary/20 backdrop-blur-sm hover-elevate">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Users className="w-5 h-5 text-primary" />
               </div>
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">+500</div>
+              <div className="text-sm text-muted-foreground">عميل سعيد</div>
+            </div>
+            
+            <div className="p-6 rounded-2xl bg-card/50 border border-secondary/20 backdrop-blur-sm hover-elevate">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <TrendingUp className="w-5 h-5 text-secondary" />
+              </div>
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">300%</div>
+              <div className="text-sm text-muted-foreground">متوسط النمو</div>
+            </div>
+            
+            <div className="p-6 rounded-2xl bg-card/50 border border-accent/20 backdrop-blur-sm hover-elevate">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Award className="w-5 h-5 text-accent" />
+              </div>
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">+50</div>
+              <div className="text-sm text-muted-foreground">جائزة</div>
+            </div>
+            
+            <div className="p-6 rounded-2xl bg-card/50 border border-primary/20 backdrop-blur-sm hover-elevate">
+              <div className="flex items-center justify-center gap-2 mb-2">
+                <Star className="w-5 h-5 text-primary" />
+              </div>
+              <div className="text-3xl md:text-4xl font-bold text-foreground mb-1">4.9</div>
+              <div className="text-sm text-muted-foreground">تقييم العملاء</div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }
