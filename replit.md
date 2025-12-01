@@ -1,6 +1,20 @@
 # Overview
 
-This is a luxury Arabic (RTL) digital agency website designed with a clean white/light background theme and gold (#F2C400) accents, inspired by makaseb.sa design aesthetic. The application is a full-stack web platform showcasing services, portfolio, client testimonials, and an e-commerce store for digital products. It features a mobile-first responsive design with smooth animations and modern, elegant styling.
+This is an ultra-premium Arabic (RTL) luxury agency website called "سليمان" designed with a BLACK × GOLD theme (#0A0A0A, #111 backgrounds with #F2C400 gold accents). The application is a full-stack web platform showcasing services, portfolio, client testimonials, and an e-commerce store for digital products. It features a mobile-first responsive design with smooth animations, elegant hover effects, and premium styling.
+
+# Recent Changes (December 2024)
+
+- **Logo sizing**: Enlarged to h-12 mobile / h-14 desktop in Header and Footer for better visibility
+- **Hero Section**: Removed min-h-screen (causing empty gaps), using py-24/32/40 padding, reduced background orbs from 600px/500px to 300px/250px
+- **ClientMarquee**: Redesigned with premium client cards (icons, names, categories, star ratings), stats section (+500 clients, +200 stores, 300% growth, +50 awards), and trust badges
+- **Products**: Created comprehensive 30-product catalog in `server/products-data.ts` covering:
+  - متاجر سلة (Salla stores): 3 products
+  - متاجر زد (Zid stores): 3 products
+  - متاجر شوبيفاي (Shopify stores): 3 products
+  - موشن جرافيك (Motion graphics): 8 products
+  - مواقع المحامين (Lawyer websites): 6 products
+  - خدمات أخرى (Additional services): 7 products
+- **WhatsApp Widget**: Integrated with phone number +201007835547
 
 # User Preferences
 
