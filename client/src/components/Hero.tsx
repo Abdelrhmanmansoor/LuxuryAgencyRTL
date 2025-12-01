@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Sparkles, Star } from "lucide-react";
+import { ArrowLeft, Sparkles, TrendingUp, Users, Award } from "lucide-react";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -54,7 +54,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6 animate-fade-up">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">
-                وكالة إبداع رقمية
+                وكالة تسويق رقمي خليجية
               </span>
             </div>
 
@@ -63,10 +63,10 @@ export default function Hero() {
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 animate-fade-up"
               style={{ animationDelay: "0.1s" }}
             >
-              <span className="text-foreground">نساعد المتاجر</span>
+              <span className="text-foreground">نمي مشروعك</span>
               <br />
               <span className="text-primary">
-                على تحقيق النمو
+                مع أفضل الحلول الرقمية
               </span>
             </h1>
 
@@ -75,8 +75,8 @@ export default function Hero() {
               className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              متخصصون في تصميم الهويات البصرية، برمجة المواقع، بناء المتاجر،
-              إدارة السوشيال ميديا، وإطلاق علامتك التجارية بأعلى معايير الجودة والاحترافية
+              متخصصون في تصميم الهويات البصرية، تطوير المتاجر الإلكترونية، برمجة المواقع،
+              وإدارة التسويق الرقمي بأعلى معايير الاحترافية والجودة
             </p>
 
             {/* CTA Buttons */}
@@ -90,7 +90,7 @@ export default function Hero() {
                   className="h-14 px-8 text-lg font-semibold shadow-lg hover:shadow-xl transition-shadow"
                   data-testid="button-hero-cta"
                 >
-                  ابدأ مشروعك
+                  ابدأ مشروعك الآن
                   <ArrowLeft className="w-5 h-5 mr-2" />
                 </Button>
               </Link>
@@ -101,7 +101,7 @@ export default function Hero() {
                   className="h-14 px-8 text-lg font-semibold"
                   data-testid="button-hero-portfolio"
                 >
-                  استعرض أعمالنا
+                  شاهد محفظتنا
                 </Button>
               </Link>
             </div>
@@ -112,107 +112,66 @@ export default function Hero() {
               style={{ animationDelay: "0.4s" }}
             >
               <div className="flex items-center gap-2">
-                <div className="flex -space-x-2 space-x-reverse">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-primary/40 border-2 border-white flex items-center justify-center"
-                    >
-                      <span className="text-xs text-primary font-bold">{i}</span>
-                    </div>
-                  ))}
-                </div>
-                <span className="text-sm text-muted-foreground">+500 عميل سعيد</span>
+                <Users className="w-5 h-5 text-primary" />
+                <span className="text-sm text-muted-foreground font-semibold">+500 عميل سعيد</span>
               </div>
-              <div className="flex items-center gap-1">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                ))}
-                <span className="text-sm text-muted-foreground mr-1">4.9 تقييم</span>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-primary" />
+                <span className="text-sm text-muted-foreground font-semibold">نمو 300%</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-primary" />
+                <span className="text-sm text-muted-foreground font-semibold">+50 جائزة</span>
               </div>
             </div>
           </div>
 
-          {/* Floating Mockup - Left side in RTL */}
+          {/* Stats Section - Left side in RTL */}
           <div
             className="order-1 lg:order-2 flex justify-center animate-fade-up"
             style={{ animationDelay: "0.4s" }}
           >
-            <div
-              className="relative"
-              style={{
-                transform: `perspective(1000px) rotateY(${mousePosition.x}deg) rotateX(${-mousePosition.y}deg)`,
-                transition: "transform 0.1s ease-out",
-              }}
-            >
-              {/* Mockup container */}
-              <div className="relative w-72 md:w-80 lg:w-96">
-                {/* Soft shadow behind */}
-                <div className="absolute inset-4 bg-primary/10 blur-3xl rounded-3xl" />
-                
-                {/* Main device mockup */}
-                <div className="relative bg-white rounded-3xl p-4 border border-border shadow-2xl">
-                  {/* Phone screen */}
-                  <div className="bg-muted/30 rounded-2xl overflow-hidden aspect-[9/16]">
-                    {/* Status bar */}
-                    <div className="h-6 bg-white flex items-center justify-between px-4">
-                      <div className="flex gap-1">
-                        <div className="w-1 h-1 bg-primary rounded-full" />
-                        <div className="w-1 h-1 bg-primary/60 rounded-full" />
-                        <div className="w-1 h-1 bg-primary/30 rounded-full" />
-                      </div>
-                      <div className="w-12 h-1.5 bg-foreground/10 rounded-full" />
-                    </div>
-                    
-                    {/* Content preview */}
-                    <div className="p-4 space-y-4">
-                      <div className="w-20 h-6 bg-primary/20 rounded-lg" />
-                      <div className="space-y-2">
-                        <div className="w-full h-3 bg-border rounded" />
-                        <div className="w-4/5 h-3 bg-border rounded" />
-                        <div className="w-3/5 h-3 bg-border rounded" />
-                      </div>
-                      <div className="grid grid-cols-2 gap-2 pt-4">
-                        <div className="aspect-square bg-primary/10 rounded-xl border border-primary/10" />
-                        <div className="aspect-square bg-primary/10 rounded-xl border border-primary/10" />
-                        <div className="aspect-square bg-primary/10 rounded-xl border border-primary/10" />
-                        <div className="aspect-square bg-primary/10 rounded-xl border border-primary/10" />
-                      </div>
-                    </div>
+            <div className="relative w-full max-w-md">
+              {/* Main card */}
+              <div className="relative bg-white rounded-2xl p-8 shadow-2xl border border-border">
+                {/* Header */}
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Sparkles className="w-7 h-7 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-foreground">خدماتنا</h3>
+                    <p className="text-sm text-muted-foreground">متكاملة وشاملة</p>
                   </div>
                 </div>
 
-                {/* Floating elements */}
-                <div
-                  className="absolute -top-4 -right-4 w-14 h-14 bg-primary rounded-2xl flex items-center justify-center shadow-lg animate-float"
-                  style={{ animationDelay: "0s" }}
-                >
-                  <Sparkles className="w-7 h-7 text-primary-foreground" />
-                </div>
-                <div
-                  className="absolute -bottom-2 -left-6 px-4 py-2 bg-white rounded-xl border border-border shadow-lg animate-float"
-                  style={{ animationDelay: "0.5s" }}
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                      <Star className="w-4 h-4 text-primary fill-primary" />
-                    </div>
-                    <div>
-                      <p className="text-xs text-muted-foreground">تقييم العملاء</p>
-                      <p className="text-sm font-bold text-foreground">4.9/5</p>
-                    </div>
+                {/* Stats grid */}
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                    <span className="text-sm text-muted-foreground">تصميم الهويات</span>
+                    <span className="text-lg font-bold text-primary">50+</span>
                   </div>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                    <span className="text-sm text-muted-foreground">المتاجر المطورة</span>
+                    <span className="text-lg font-bold text-primary">120+</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                    <span className="text-sm text-muted-foreground">حملات إعلانية</span>
+                    <span className="text-lg font-bold text-primary">200+</span>
+                  </div>
+                  <div className="flex items-center justify-between p-3 rounded-xl bg-muted/50 border border-border/50">
+                    <span className="text-sm text-muted-foreground">العملاء النشطين</span>
+                    <span className="text-lg font-bold text-primary">500+</span>
+                  </div>
+                </div>
+
+                {/* Floating badges */}
+                <div className="absolute -top-4 -right-4 px-3 py-1.5 bg-primary rounded-full text-white text-xs font-bold shadow-lg">
+                  الأفضل في الخليج
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-foreground/20 flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-primary rounded-full" />
         </div>
       </div>
     </section>

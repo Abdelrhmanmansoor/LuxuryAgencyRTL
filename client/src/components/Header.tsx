@@ -52,13 +52,11 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" data-testid="link-logo">
             <div className="flex items-center cursor-pointer group">
-              <div className="bg-foreground rounded-lg px-3 py-2 transition-all duration-300 group-hover:shadow-lg">
-                <img
-                  src={logoImage}
-                  alt="Logo"
-                  className="h-6 md:h-8 w-auto transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+              <img
+                src={logoImage}
+                alt="Logo"
+                className="h-8 md:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
           </Link>
 

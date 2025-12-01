@@ -50,13 +50,13 @@ export default function ClientMarquee() {
       {/* Section Header */}
       <div className={`text-center mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
         <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-          عملاؤنا
+          شركاؤنا
         </span>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-          نفخر بثقة عملائنا
+          نفخر بثقة العملاء
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          أكثر من 90 علامة تجارية رائدة تثق بنا
+          أكثر من 500 علامة تجارية خليجية رائدة تثق بخدماتنا
         </p>
       </div>
 
@@ -74,10 +74,11 @@ export default function ClientMarquee() {
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="flex-shrink-0 mx-4 md:mx-6 group"
+                className="flex-shrink-0 mx-4 md:mx-6 group animate-pulse"
+                style={{ animationDelay: `${client.id * 0.1}s` }}
                 data-testid={`client-logo-${client.id}`}
               >
-                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md">
+                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md hover:bg-primary/5">
                   <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {client.name}
                   </span>
@@ -88,9 +89,10 @@ export default function ClientMarquee() {
             {clients.map((client) => (
               <div
                 key={`dup-${client.id}`}
-                className="flex-shrink-0 mx-4 md:mx-6 group"
+                className="flex-shrink-0 mx-4 md:mx-6 group animate-pulse"
+                style={{ animationDelay: `${client.id * 0.1}s` }}
               >
-                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md">
+                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md hover:bg-primary/5">
                   <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {client.name}
                   </span>
