@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles, Shield } from "lucide-react";
+import { Menu, X, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@assets/لوجو_1764568508735.png";
 
@@ -43,8 +43,8 @@ export default function Header() {
       data-testid="header"
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-xl border-b border-primary/20 shadow-lg shadow-primary/5"
-          : "bg-background/80 backdrop-blur-sm"
+          ? "bg-black/95 backdrop-blur-xl shadow-lg"
+          : "bg-black/90 backdrop-blur-sm"
       }`}
     >
       <nav className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -54,8 +54,8 @@ export default function Header() {
             <div className="flex items-center cursor-pointer group">
               <img
                 src={logoImage}
-                alt="سليمان"
-                className="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
+                alt="سُليمان"
+                className="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </Link>
@@ -70,7 +70,7 @@ export default function Header() {
                   className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     location === link.href
                       ? "text-primary bg-primary/10 font-bold"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
                   }`}
                 >
                   {link.label}
@@ -80,10 +80,10 @@ export default function Header() {
             <Link href="/contact">
               <Button
                 data-testid="button-cta-header"
-                className="mr-4 btn-glow"
+                className="mr-4 bg-primary hover:bg-primary/90 text-black font-bold"
               >
-                <Sparkles className="w-4 h-4 ml-2" />
                 ابدأ مشروعك
+                <ArrowLeft className="w-4 h-4 mr-2" />
               </Button>
             </Link>
           </div>
@@ -92,7 +92,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className="lg:hidden text-white hover:bg-white/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="button-mobile-menu"
           >
@@ -107,7 +107,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-16 md:top-20 bg-background/98 backdrop-blur-xl transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 top-16 md:top-20 bg-black/98 backdrop-blur-xl transition-all duration-500 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -123,7 +123,7 @@ export default function Header() {
                   className={`w-full text-right px-4 py-4 text-lg font-medium rounded-xl transition-all duration-300 ${
                     location === link.href
                       ? "text-primary bg-primary/10 font-bold"
-                      : "text-foreground hover:text-primary hover:bg-card"
+                      : "text-white hover:text-primary hover:bg-white/5"
                   }`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
@@ -133,11 +133,11 @@ export default function Header() {
             ))}
             <Link href="/contact">
               <Button
-                className="w-full mt-4 h-14 text-lg btn-glow"
+                className="w-full mt-4 h-14 text-lg bg-primary hover:bg-primary/90 text-black font-bold"
                 data-testid="button-mobile-cta"
               >
-                <Sparkles className="w-5 h-5 ml-2" />
                 ابدأ مشروعك
+                <ArrowLeft className="w-5 h-5 mr-2" />
               </Button>
             </Link>
           </div>
