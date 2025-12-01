@@ -6,16 +6,31 @@ export default {
   theme: {
     extend: {
       borderRadius: {
-        lg: ".5625rem", /* 9px */
-        md: ".375rem", /* 6px */
-        sm: ".1875rem", /* 3px */
+        lg: "0.75rem",
+        md: "0.5rem",
+        sm: "0.25rem",
+        xl: "1rem",
+        "2xl": "1.125rem",
+        "3xl": "1.5rem",
       },
       colors: {
-        // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",
         border: "hsl(var(--border) / <alpha-value>)",
         input: "hsl(var(--input) / <alpha-value>)",
+        gold: {
+          DEFAULT: "hsl(45 98% 48%)",
+          50: "hsl(45 98% 95%)",
+          100: "hsl(45 98% 88%)",
+          200: "hsl(45 98% 78%)",
+          300: "hsl(45 98% 68%)",
+          400: "hsl(45 98% 58%)",
+          500: "hsl(45 98% 48%)",
+          600: "hsl(45 98% 40%)",
+          700: "hsl(45 98% 32%)",
+          800: "hsl(45 98% 24%)",
+          900: "hsl(45 98% 16%)",
+        },
         card: {
           DEFAULT: "hsl(var(--card) / <alpha-value>)",
           foreground: "hsl(var(--card-foreground) / <alpha-value>)",
@@ -83,9 +98,15 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["var(--font-sans)"],
+        sans: ["Cairo", "Tajawal", "var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ["var(--font-mono)"],
+        cairo: ["Cairo", "sans-serif"],
+        tajawal: ["Tajawal", "sans-serif"],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
       },
       keyframes: {
         "accordion-down": {
@@ -96,10 +117,60 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(30px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "slide-in-right": {
+          from: { transform: "translateX(100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "slide-in-left": {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "scale-in": {
+          from: { opacity: "0", transform: "scale(0.95)" },
+          to: { opacity: "1", transform: "scale(1)" },
+        },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px hsl(45 98% 48% / 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsl(45 98% 48% / 0.5)" },
+        },
+        "marquee": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
+        "shimmer": {
+          from: { backgroundPosition: "200% 0" },
+          to: { backgroundPosition: "-200% 0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-up": "fade-up 0.6s ease-out forwards",
+        "fade-in": "fade-in 0.4s ease-out forwards",
+        "slide-in-right": "slide-in-right 0.4s ease-out forwards",
+        "slide-in-left": "slide-in-left 0.4s ease-out forwards",
+        "scale-in": "scale-in 0.3s ease-out forwards",
+        "float": "float 3s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 2s ease-in-out infinite",
+        "marquee": "marquee 30s linear infinite",
+        "shimmer": "shimmer 2s linear infinite",
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gold-gradient': 'linear-gradient(135deg, hsl(45 98% 48%) 0%, hsl(35 92% 42%) 100%)',
+        'dark-gradient': 'linear-gradient(180deg, hsl(0 0% 4%) 0%, hsl(0 0% 6%) 100%)',
       },
     },
   },
