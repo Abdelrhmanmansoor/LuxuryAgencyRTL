@@ -75,8 +75,7 @@ export default function Hero() {
               className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              متخصصون في تصميم الهويات البصرية، تطوير المتاجر الإلكترونية، برمجة المواقع،
-              وإدارة التسويق الرقمي بأعلى معايير الاحترافية والجودة
+              وكالة تسويق رقمي سعودية متخصصة في بناء العلامات التجارية الفاخرة والحلول الرقمية المبتكرة
             </p>
 
             {/* CTA Buttons */}
