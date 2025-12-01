@@ -1,7 +1,8 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
   "env": {
     "SESSION_SECRET": "@SESSION_SECRET"
-  }
+  },
+  "regions": ["iad1"]
 }
