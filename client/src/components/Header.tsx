@@ -54,8 +54,8 @@ export default function Header() {
             <div className="flex items-center cursor-pointer group">
               <img
                 src={logoImage}
-                alt="Logo"
-                className="h-8 md:h-10 w-auto transition-transform duration-300 group-hover:scale-105"
+                alt="سليمان"
+                className="h-12 md:h-16 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </div>
           </Link>

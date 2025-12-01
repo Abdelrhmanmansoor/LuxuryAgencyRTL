@@ -1,24 +1,29 @@
 import { useEffect, useRef, useState } from "react";
-import { Building2, Users } from "lucide-react";
+import { Star, Award, Users, CheckCircle, TrendingUp, ShoppingBag, Building2, Briefcase, Crown, Globe } from "lucide-react";
 
 const clients = [
-  { id: 1, name: "شركة النخبة" },
-  { id: 2, name: "مجموعة الريادة" },
-  { id: 3, name: "شركة الإبداع" },
-  { id: 4, name: "مؤسسة التميز" },
-  { id: 5, name: "شركة الرؤية" },
-  { id: 6, name: "مجموعة النجاح" },
-  { id: 7, name: "شركة الطموح" },
-  { id: 8, name: "مؤسسة الإنجاز" },
-  { id: 9, name: "شركة المستقبل" },
-  { id: 10, name: "مجموعة الابتكار" },
-  { id: 11, name: "شركة القمة" },
-  { id: 12, name: "مؤسسة ريادة" },
-  { id: 13, name: "شركة الأمل" },
-  { id: 14, name: "مجموعة السعادة" },
-  { id: 15, name: "شركة الوفاء" },
-  { id: 16, name: "مؤسسة الجودة" },
+  { id: 1, name: "متجر العطور الفاخرة", category: "تجارة إلكترونية", rating: 5 },
+  { id: 2, name: "مجموعة الريادة التجارية", category: "شركة استثمارية", rating: 5 },
+  { id: 3, name: "مكتب المحاماة السعودي", category: "خدمات قانونية", rating: 5 },
+  { id: 4, name: "متجر ألماس للمجوهرات", category: "مجوهرات فاخرة", rating: 5 },
+  { id: 5, name: "شركة النخبة للتطوير", category: "عقارات", rating: 5 },
+  { id: 6, name: "منصة سوق الخليج", category: "ماركت بليس", rating: 5 },
+  { id: 7, name: "مؤسسة الإبداع الرقمي", category: "تقنية", rating: 5 },
+  { id: 8, name: "متجر البيت الأنيق", category: "ديكور ومفروشات", rating: 5 },
+  { id: 9, name: "مجموعة الصفوة المالية", category: "خدمات مالية", rating: 5 },
+  { id: 10, name: "متجر السيارات الفاخرة", category: "سيارات", rating: 5 },
+  { id: 11, name: "مكتب العدالة للمحاماة", category: "محاماة", rating: 5 },
+  { id: 12, name: "منصة التعلم الذكي", category: "تعليم", rating: 5 },
 ];
+
+const stats = [
+  { icon: Users, value: "+500", label: "عميل راضٍ" },
+  { icon: ShoppingBag, value: "+200", label: "متجر إلكتروني" },
+  { icon: TrendingUp, value: "300%", label: "متوسط النمو" },
+  { icon: Award, value: "+50", label: "جائزة" },
+];
+
+const icons = [Building2, Crown, Globe, Briefcase, ShoppingBag, Star];
 
 export default function ClientMarquee() {
   const [isVisible, setIsVisible] = useState(false);
@@ -45,74 +50,132 @@ export default function ClientMarquee() {
     <section
       id="clients"
       ref={sectionRef}
-      className="py-20 md:py-28 bg-background relative overflow-hidden"
+      className="py-16 md:py-24 bg-card/30 relative overflow-hidden"
       data-testid="section-clients"
     >
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
-        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[80px]" />
-      </div>
+      {/* Gold accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
-      {/* Section Header */}
-      <div className={`text-center mb-12 px-4 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-          <Users className="w-4 h-4" />
-          شركاؤنا في النجاح
+      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className={`text-center mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
+            <Crown className="w-4 h-4" />
+            شركاؤنا في النجاح
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+            يثق بنا أكثر من 500+ علامة تجارية
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            نفخر بخدمة أبرز العلامات التجارية في الخليج
+          </p>
         </div>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
-          نفخر بثقة العملاء
-        </h2>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          أكثر من 500 علامة تجارية خليجية رائدة تثق بخدماتنا
-        </p>
-      </div>
 
-      {/* Marquee Container */}
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        {/* Stats Row */}
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "0.1s" }}>
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <div key={index} className="text-center p-4 rounded-xl bg-background/50 border border-primary/10">
+                <Icon className="w-6 h-6 text-accent mx-auto mb-2" />
+                <div className="text-2xl md:text-3xl font-bold text-foreground">{stat.value}</div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </div>
+            );
+          })}
+        </div>
 
-        {/* Marquee track */}
-        <div className="flex overflow-hidden">
-          <div className="flex animate-marquee">
-            {/* First set of logos */}
-            {clients.map((client) => (
-              <div
-                key={client.id}
-                className="flex-shrink-0 mx-3 md:mx-4"
-                data-testid={`client-logo-${client.id}`}
-              >
-                <div className="px-6 py-4 flex items-center gap-3 rounded-xl bg-card border border-primary/20 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover-elevate">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Building2 className="w-4 h-4 text-primary" />
+        {/* Marquee Container */}
+        <div className="relative">
+          {/* Fade edges */}
+          <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-card/30 to-transparent z-10 pointer-events-none" />
+          <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-card/30 to-transparent z-10 pointer-events-none" />
+
+          {/* Marquee track */}
+          <div className="flex overflow-hidden">
+            <div className="flex animate-marquee">
+              {/* First set */}
+              {clients.map((client, index) => {
+                const IconComponent = icons[index % icons.length];
+                return (
+                  <div
+                    key={client.id}
+                    className="flex-shrink-0 mx-2 md:mx-3"
+                    data-testid={`client-logo-${client.id}`}
+                  >
+                    <div className="group px-5 py-4 flex items-center gap-4 rounded-xl bg-background border border-primary/10 transition-all duration-300 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                        <IconComponent className="w-6 h-6 text-accent" />
+                      </div>
+                      <div className="text-right">
+                        <span className="block text-sm font-bold text-foreground whitespace-nowrap">
+                          {client.name}
+                        </span>
+                        <span className="block text-xs text-muted-foreground">
+                          {client.category}
+                        </span>
+                        <div className="flex gap-0.5 mt-1">
+                          {[...Array(client.rating)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 text-accent fill-accent" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-sm md:text-base font-medium text-foreground whitespace-nowrap">
-                    {client.name}
-                  </span>
-                </div>
-              </div>
-            ))}
-            {/* Duplicate for seamless loop */}
-            {clients.map((client) => (
-              <div
-                key={`dup-${client.id}`}
-                className="flex-shrink-0 mx-3 md:mx-4"
-              >
-                <div className="px-6 py-4 flex items-center gap-3 rounded-xl bg-card border border-primary/20 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover-elevate">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Building2 className="w-4 h-4 text-primary" />
+                );
+              })}
+              {/* Duplicate for seamless loop */}
+              {clients.map((client, index) => {
+                const IconComponent = icons[index % icons.length];
+                return (
+                  <div
+                    key={`dup-${client.id}`}
+                    className="flex-shrink-0 mx-2 md:mx-3"
+                  >
+                    <div className="group px-5 py-4 flex items-center gap-4 rounded-xl bg-background border border-primary/10 transition-all duration-300 hover:border-accent/40 hover:shadow-lg hover:shadow-accent/10">
+                      <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+                        <IconComponent className="w-6 h-6 text-accent" />
+                      </div>
+                      <div className="text-right">
+                        <span className="block text-sm font-bold text-foreground whitespace-nowrap">
+                          {client.name}
+                        </span>
+                        <span className="block text-xs text-muted-foreground">
+                          {client.category}
+                        </span>
+                        <div className="flex gap-0.5 mt-1">
+                          {[...Array(client.rating)].map((_, i) => (
+                            <Star key={i} className="w-3 h-3 text-accent fill-accent" />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <span className="text-sm md:text-base font-medium text-foreground whitespace-nowrap">
-                    {client.name}
-                  </span>
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Trust badge */}
+        <div className={`mt-10 flex flex-wrap justify-center gap-6 ${isVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "0.2s" }}>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <CheckCircle className="w-4 h-4 text-accent" />
+            <span>معتمدون من سلة وزد</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <CheckCircle className="w-4 h-4 text-accent" />
+            <span>شركاء Shopify</span>
+          </div>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <CheckCircle className="w-4 h-4 text-accent" />
+            <span>دفع آمن 100%</span>
           </div>
         </div>
       </div>
+
+      {/* Bottom gold line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
     </section>
   );
 }

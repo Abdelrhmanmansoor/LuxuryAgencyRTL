@@ -61,8 +61,8 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-6 group">
               <img
                 src={logoImage}
-                alt="Logo"
-                className="h-12 w-auto transition-transform duration-300 group-hover:scale-105"
+                alt="سليمان"
+                className="h-16 md:h-20 w-auto transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
 

@@ -24,54 +24,26 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-20"
+      className="relative py-24 md:py-32 lg:py-40 flex items-center justify-center overflow-hidden bg-background"
       data-testid="section-hero"
     >
-      {/* Animated background orbs */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Subtle background effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
-          className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] animate-pulse-glow"
+          className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-primary/8 rounded-full blur-[80px]"
           style={{
-            transform: `translate(${mousePosition.x * 2}px, ${mousePosition.y * 2}px)`,
+            transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`,
           }}
         />
         <div
-          className="absolute bottom-1/3 left-1/4 w-[500px] h-[500px] bg-secondary/8 rounded-full blur-[100px]"
+          className="absolute bottom-1/4 left-1/4 w-[250px] h-[250px] bg-accent/6 rounded-full blur-[60px]"
           style={{
-            transform: `translate(${-mousePosition.x * 1.5}px, ${-mousePosition.y * 1.5}px)`,
-          }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2"
-        />
-        
-        {/* Grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(265 85% 65%) 1px, transparent 1px), linear-gradient(90deg, hsl(265 85% 65%) 1px, transparent 1px)`,
-            backgroundSize: '60px 60px'
+            transform: `translate(${-mousePosition.x}px, ${-mousePosition.y}px)`,
           }}
         />
       </div>
 
-      {/* Floating elements */}
-      <div className="absolute top-32 right-20 animate-float hidden lg:block" style={{ animationDelay: "0s" }}>
-        <div className="w-16 h-16 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center">
-          <Star className="w-8 h-8 text-primary" />
-        </div>
-      </div>
-      <div className="absolute bottom-40 left-20 animate-float hidden lg:block" style={{ animationDelay: "1s" }}>
-        <div className="w-14 h-14 rounded-2xl bg-secondary/20 border border-secondary/30 flex items-center justify-center">
-          <Zap className="w-6 h-6 text-secondary" />
-        </div>
-      </div>
-      <div className="absolute top-1/2 right-10 animate-float hidden lg:block" style={{ animationDelay: "2s" }}>
-        <div className="w-12 h-12 rounded-xl bg-accent/20 border border-accent/30 flex items-center justify-center">
-          <Sparkles className="w-5 h-5 text-accent" />
-        </div>
-      </div>
-
+      
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
@@ -171,9 +143,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 }
