@@ -8,8 +8,8 @@ export default function CTAStrip() {
       className="py-16 md:py-24 relative overflow-hidden"
       data-testid="section-cta"
     >
-      {/* Gold gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-primary" />
+      {/* Purple gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-primary" />
       
       {/* Pattern overlay */}
       <div className="absolute inset-0 opacity-10">

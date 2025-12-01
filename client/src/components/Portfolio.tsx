@@ -113,7 +113,7 @@ export default function Portfolio() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="py-20 md:py-28 bg-muted/20 relative overflow-hidden"
+      className="py-20 md:py-28 bg-background border-y border-primary/10 relative overflow-hidden"
       data-testid="section-portfolio"
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -135,7 +135,7 @@ export default function Portfolio() {
           {portfolioItems.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative rounded-xl overflow-hidden cursor-pointer bg-white border border-border/50 shadow-sm hover:shadow-md transition-all duration-300 ${
+              className={`group relative rounded-xl overflow-hidden cursor-pointer bg-card border border-primary/20 shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover-elevate ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 0.04}s` }}
@@ -168,7 +168,7 @@ export default function Portfolio() {
 
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-2xl bg-white border-border p-0 overflow-hidden">
+        <DialogContent className="max-w-2xl bg-card border-primary/30 p-0 overflow-hidden">
           {selectedProject && (
             <>
               {/* Image */}

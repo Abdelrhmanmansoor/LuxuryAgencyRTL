@@ -87,13 +87,13 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="py-20 md:py-32 bg-muted/30 relative overflow-hidden"
+      className="py-20 md:py-32 bg-background border-y border-primary/10 relative overflow-hidden"
       data-testid="section-services"
     >
       {/* Background decorations */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -117,7 +117,7 @@ export default function Services() {
             return (
               <div
                 key={service.id}
-                className={`group relative p-6 rounded-2xl bg-white border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                className={`group relative p-6 rounded-2xl bg-card border border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:-translate-y-1 hover-elevate ${
                   isVisible ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 0.05}s` }}

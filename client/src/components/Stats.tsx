@@ -52,13 +52,13 @@ export default function Stats() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-white relative overflow-hidden"
+      className="py-16 md:py-24 bg-background border-b border-primary/10 relative overflow-hidden"
       data-testid="section-stats"
     >
       {/* Background decoration */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-primary/8 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-secondary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
@@ -68,7 +68,7 @@ export default function Stats() {
             return (
               <div
                 key={stat.id}
-                className={`group relative p-6 md:p-8 rounded-2xl bg-muted/30 border border-border transition-all duration-300 hover:shadow-lg hover:border-primary/20 ${
+                className={`group relative p-6 md:p-8 rounded-2xl bg-card/50 border border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:border-primary/40 hover-elevate ${
                   isVisible ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
