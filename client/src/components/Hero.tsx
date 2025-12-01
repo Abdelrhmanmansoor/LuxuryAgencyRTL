@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Play, Sparkles, Star, Zap, TrendingUp, Award, Users } from "lucide-react";
+import { ArrowLeft, Play, Sparkles, Star, TrendingUp, Award, Users } from "lucide-react";
 
 export default function Hero() {
   const heroRef = useRef<HTMLDivElement>(null);
