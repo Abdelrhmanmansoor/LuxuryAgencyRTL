@@ -1,22 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
 const clients = [
-  { id: 1, name: "شركة النخبة", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=النخبة" },
-  { id: 2, name: "مجموعة الريادة", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الريادة" },
-  { id: 3, name: "شركة الإبداع", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الإبداع" },
-  { id: 4, name: "مؤسسة التميز", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=التميز" },
-  { id: 5, name: "شركة الرؤية", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الرؤية" },
-  { id: 6, name: "مجموعة النجاح", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=النجاح" },
-  { id: 7, name: "شركة الطموح", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الطموح" },
-  { id: 8, name: "مؤسسة الإنجاز", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الإنجاز" },
-  { id: 9, name: "شركة المستقبل", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=المستقبل" },
-  { id: 10, name: "مجموعة الابتكار", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الابتكار" },
-  { id: 11, name: "شركة القمة", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=القمة" },
-  { id: 12, name: "مؤسسة الريادة", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=ريادة" },
-  { id: 13, name: "شركة الأمل", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الأمل" },
-  { id: 14, name: "مجموعة السعادة", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=السعادة" },
-  { id: 15, name: "شركة الوفاء", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الوفاء" },
-  { id: 16, name: "مؤسسة الجودة", logo: "https://via.placeholder.com/120x60/1a1a1a/F2C400?text=الجودة" },
+  { id: 1, name: "شركة النخبة" },
+  { id: 2, name: "مجموعة الريادة" },
+  { id: 3, name: "شركة الإبداع" },
+  { id: 4, name: "مؤسسة التميز" },
+  { id: 5, name: "شركة الرؤية" },
+  { id: 6, name: "مجموعة النجاح" },
+  { id: 7, name: "شركة الطموح" },
+  { id: 8, name: "مؤسسة الإنجاز" },
+  { id: 9, name: "شركة المستقبل" },
+  { id: 10, name: "مجموعة الابتكار" },
+  { id: 11, name: "شركة القمة" },
+  { id: 12, name: "مؤسسة ريادة" },
+  { id: 13, name: "شركة الأمل" },
+  { id: 14, name: "مجموعة السعادة" },
+  { id: 15, name: "شركة الوفاء" },
+  { id: 16, name: "مؤسسة الجودة" },
 ];
 
 export default function ClientMarquee() {
@@ -44,25 +44,28 @@ export default function ClientMarquee() {
     <section
       id="clients"
       ref={sectionRef}
-      className="py-16 md:py-24 bg-background relative overflow-hidden"
+      className="py-16 md:py-24 bg-muted/30 relative overflow-hidden"
       data-testid="section-clients"
     >
       {/* Section Header */}
       <div className={`text-center mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-          <span className="text-primary gold-text-glow">عملاؤنا</span>
+        <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+          عملاؤنا
+        </span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+          نفخر بثقة عملائنا
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-          نفخر بثقة أكثر من 90 علامة تجارية رائدة
+          أكثر من 90 علامة تجارية رائدة تثق بنا
         </p>
       </div>
 
       {/* Marquee Container */}
       <div className="relative">
         {/* Left fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-muted/30 to-transparent z-10" />
         {/* Right fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-muted/30 to-transparent z-10" />
 
         {/* Marquee track */}
         <div className="flex overflow-hidden">
@@ -71,11 +74,11 @@ export default function ClientMarquee() {
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="flex-shrink-0 mx-6 md:mx-10 group"
+                className="flex-shrink-0 mx-4 md:mx-6 group"
                 data-testid={`client-logo-${client.id}`}
               >
-                <div className="w-28 md:w-36 h-14 md:h-18 flex items-center justify-center rounded-xl bg-card/50 border border-primary/10 transition-all duration-500 group-hover:border-primary/30 group-hover:bg-primary/5">
-                  <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 grayscale group-hover:grayscale-0">
+                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md">
+                  <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {client.name}
                   </span>
                 </div>
@@ -85,10 +88,10 @@ export default function ClientMarquee() {
             {clients.map((client) => (
               <div
                 key={`dup-${client.id}`}
-                className="flex-shrink-0 mx-6 md:mx-10 group"
+                className="flex-shrink-0 mx-4 md:mx-6 group"
               >
-                <div className="w-28 md:w-36 h-14 md:h-18 flex items-center justify-center rounded-xl bg-card/50 border border-primary/10 transition-all duration-500 group-hover:border-primary/30 group-hover:bg-primary/5">
-                  <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300 grayscale group-hover:grayscale-0">
+                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md">
+                  <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {client.name}
                   </span>
                 </div>

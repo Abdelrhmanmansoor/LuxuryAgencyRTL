@@ -9,7 +9,7 @@ export default function CTAStrip() {
       data-testid="section-cta"
     >
       {/* Gold gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary to-primary/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary to-primary" />
       
       {/* Pattern overlay */}
       <div className="absolute inset-0 opacity-10">
@@ -20,30 +20,29 @@ export default function CTAStrip() {
 
       {/* Floating sparkles */}
       <div className="absolute top-8 right-1/4 animate-float" style={{ animationDelay: "0s" }}>
-        <Sparkles className="w-8 h-8 text-background/30" />
+        <Sparkles className="w-8 h-8 text-white/30" />
       </div>
       <div className="absolute bottom-8 left-1/4 animate-float" style={{ animationDelay: "1s" }}>
-        <Sparkles className="w-6 h-6 text-background/20" />
+        <Sparkles className="w-6 h-6 text-white/20" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Heading */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-primary-foreground mb-6 leading-tight">
-            جاهز لإطلاق مشروعك مع فريق يصنع هوية لا تُنسى؟
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-6 leading-tight">
+            جاهز للتواصل معنا؟
           </h2>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            دعنا نحول رؤيتك إلى واقع رقمي فاخر يليق بطموحاتك
+          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            إذا كنت واحد من هؤلاء، دعنا نحول رؤيتك إلى واقع رقمي يليق بطموحاتك
           </p>
 
           {/* CTA Button */}
           <Link href="/contact">
             <Button
               size="lg"
-              variant="secondary"
-              className="h-14 px-10 text-lg font-bold bg-background text-primary hover:bg-background/90 shadow-2xl"
+              className="h-14 px-10 text-lg font-bold bg-white text-primary hover:bg-white/90 shadow-2xl"
               data-testid="button-cta-strip"
             >
               ابدأ الآن

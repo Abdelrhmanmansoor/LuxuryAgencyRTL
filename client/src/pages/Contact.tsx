@@ -35,7 +35,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "البريد الإلكتروني",
-    details: ["info@sulaiman.sa", "support@sulaiman.sa"],
+    details: ["info@example.sa", "support@example.sa"],
   },
   {
     icon: Clock,
@@ -90,11 +90,14 @@ export default function Contact() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           {/* Page Header */}
           <div className="text-center mb-12 md:mb-16 animate-fade-up">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-              <span className="text-primary gold-text-glow">تواصل معنا</span>
+            <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              تواصل معنا
+            </span>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+              نسعد بتواصلكم
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              نسعد بتواصلكم ونحن جاهزون للإجابة على جميع استفساراتكم
+              فريقنا جاهز للإجابة على جميع استفساراتكم
             </p>
           </div>
 
@@ -115,7 +118,7 @@ export default function Contact() {
                   return (
                     <Card
                       key={index}
-                      className="bg-card border-primary/10 hover:border-primary/30 transition-all duration-500"
+                      className="bg-white border-border hover:shadow-md transition-all duration-300"
                       data-testid={`contact-info-${index}`}
                     >
                       <CardContent className="p-5">
@@ -139,14 +142,13 @@ export default function Contact() {
               </div>
 
               {/* Map placeholder */}
-              <div className="aspect-video rounded-2xl bg-card border border-primary/10 overflow-hidden relative">
+              <div className="aspect-video rounded-2xl bg-muted/30 border border-border overflow-hidden relative">
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="w-12 h-12 text-primary/30 mx-auto mb-3" />
                     <p className="text-muted-foreground">الرياض، المملكة العربية السعودية</p>
                   </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5" />
               </div>
             </div>
 
@@ -155,7 +157,7 @@ export default function Contact() {
               className="animate-fade-up"
               style={{ animationDelay: "0.2s" }}
             >
-              <Card className="bg-card border-primary/10">
+              <Card className="bg-white border-border">
                 <CardContent className="p-6 md:p-8">
                   {isSuccess ? (
                     <div className="text-center py-12">
@@ -171,7 +173,6 @@ export default function Contact() {
                       <Button
                         variant="outline"
                         onClick={() => setIsSuccess(false)}
-                        className="border-primary/30"
                       >
                         إرسال رسالة أخرى
                       </Button>
@@ -198,7 +199,7 @@ export default function Contact() {
                                 <FormControl>
                                   <Input
                                     placeholder="أدخل اسمك الكامل"
-                                    className="bg-background border-primary/20 focus:border-primary h-12"
+                                    className="bg-muted/30 border-border focus:border-primary h-12"
                                     data-testid="input-name"
                                     {...field}
                                   />
@@ -218,7 +219,7 @@ export default function Contact() {
                                   <Input
                                     type="email"
                                     placeholder="example@email.com"
-                                    className="bg-background border-primary/20 focus:border-primary h-12"
+                                    className="bg-muted/30 border-border focus:border-primary h-12"
                                     data-testid="input-email"
                                     {...field}
                                   />
@@ -237,7 +238,7 @@ export default function Contact() {
                                 <FormControl>
                                   <Textarea
                                     placeholder="اكتب رسالتك هنا..."
-                                    className="bg-background border-primary/20 focus:border-primary min-h-[150px] resize-none"
+                                    className="bg-muted/30 border-border focus:border-primary min-h-[150px] resize-none"
                                     data-testid="input-message"
                                     {...field}
                                   />
@@ -250,7 +251,7 @@ export default function Contact() {
                           <Button
                             type="submit"
                             size="lg"
-                            className="w-full h-14 text-lg font-semibold gold-glow"
+                            className="w-full h-14 text-lg font-semibold"
                             disabled={mutation.isPending}
                             data-testid="button-submit-contact"
                           >

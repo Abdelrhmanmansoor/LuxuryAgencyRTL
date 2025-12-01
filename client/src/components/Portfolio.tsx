@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { X, ExternalLink } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import type { Portfolio } from "@shared/schema";
 
 const portfolioItems: Portfolio[] = [
@@ -133,7 +133,7 @@ export default function Portfolio() {
     <section
       id="portfolio"
       ref={sectionRef}
-      className="py-20 md:py-32 bg-card relative overflow-hidden"
+      className="py-20 md:py-32 bg-white relative overflow-hidden"
       data-testid="section-portfolio"
     >
       {/* Background decoration */}
@@ -145,11 +145,14 @@ export default function Portfolio() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-primary gold-text-glow">أعمالنا</span>
+          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            أعمالنا
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+            مشاريع نفخر بها
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            مشاريع نفخر بها تعكس جودة عملنا والتزامنا بالتميز
+            نماذج من أعمالنا تعكس جودة واحترافية فريقنا
           </p>
         </div>
 
@@ -158,7 +161,7 @@ export default function Portfolio() {
           {portfolioItems.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
+              className={`group relative rounded-2xl overflow-hidden cursor-pointer bg-white border border-border shadow-sm hover:shadow-xl transition-all duration-300 ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 0.05}s` }}
@@ -175,24 +178,15 @@ export default function Portfolio() {
                 />
               </div>
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
               {/* Content */}
-              <div className="absolute inset-0 p-4 flex flex-col justify-end transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                <Badge variant="secondary" className="w-fit mb-2 bg-primary/20 text-primary border-primary/30">
+              <div className="p-4">
+                <Badge variant="secondary" className="mb-2 bg-primary/10 text-primary border-0">
                   {project.category}
                 </Badge>
-                <h3 className="text-lg font-bold text-foreground mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-sm text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150 line-clamp-2">
-                  {project.description}
-                </p>
               </div>
-
-              {/* Border glow on hover */}
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-primary/30 rounded-2xl transition-colors duration-500" />
             </div>
           ))}
         </div>
@@ -200,7 +194,7 @@ export default function Portfolio() {
 
       {/* Project Detail Modal */}
       <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-        <DialogContent className="max-w-3xl bg-card border-primary/20 p-0 overflow-hidden">
+        <DialogContent className="max-w-3xl bg-white border-border p-0 overflow-hidden">
           {selectedProject && (
             <>
               {/* Image */}
@@ -210,7 +204,6 @@ export default function Portfolio() {
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
               </div>
 
               {/* Content */}
@@ -218,7 +211,7 @@ export default function Portfolio() {
                 <DialogHeader>
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <Badge variant="secondary" className="mb-3 bg-primary/20 text-primary border-primary/30">
+                      <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary border-0">
                         {selectedProject.category}
                       </Badge>
                       <DialogTitle className="text-2xl md:text-3xl font-bold text-foreground">
@@ -226,6 +219,9 @@ export default function Portfolio() {
                       </DialogTitle>
                     </div>
                   </div>
+                  <DialogDescription className="sr-only">
+                    تفاصيل المشروع {selectedProject.title}
+                  </DialogDescription>
                 </DialogHeader>
 
                 <p className="text-muted-foreground mt-4 leading-relaxed">
@@ -237,7 +233,7 @@ export default function Portfolio() {
                   <h4 className="text-sm font-medium text-muted-foreground mb-3">الأدوات المستخدمة</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.tools.map((tool) => (
-                      <Badge key={tool} variant="outline" className="border-primary/30 text-foreground">
+                      <Badge key={tool} variant="outline" className="border-border text-foreground">
                         {tool}
                       </Badge>
                     ))}

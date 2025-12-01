@@ -87,7 +87,7 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="py-20 md:py-32 bg-background relative overflow-hidden"
+      className="py-20 md:py-32 bg-muted/30 relative overflow-hidden"
       data-testid="section-services"
     >
       {/* Background decorations */}
@@ -99,11 +99,14 @@ export default function Services() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-primary gold-text-glow">خدماتنا</span>
+          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            خدماتنا
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+            كل احتياجات التسويقية في مكان واحد
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            نقدّم حلولًا متكاملة لصناعة هوية فاخرة تميزك في السوق
+            نقدّم حلولًا متكاملة لصناعة علامة تجارية ناجحة ومميزة
           </p>
         </div>
 
@@ -114,23 +117,20 @@ export default function Services() {
             return (
               <div
                 key={service.id}
-                className={`group relative p-6 rounded-2xl glass-panel-dark border border-primary/10 transition-all duration-500 hover:border-primary/30 card-3d ${
+                className={`group relative p-6 rounded-2xl bg-white border border-border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
                   isVisible ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 0.05}s` }}
                 data-testid={`service-card-${service.id}`}
               >
-                {/* Hover glow effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 gold-glow-sm" />
-                
                 <div className="relative z-10">
                   {/* Icon */}
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                    <Icon className="w-7 h-7 text-primary" />
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-foreground mb-3">
                     {service.title}
                   </h3>
 
@@ -144,11 +144,6 @@ export default function Services() {
                     اعرف المزيد
                     <ArrowLeft className="w-4 h-4" />
                   </button>
-                </div>
-
-                {/* Corner decoration */}
-                <div className="absolute bottom-0 left-0 w-24 h-24 overflow-hidden opacity-20">
-                  <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-primary/20 to-transparent" />
                 </div>
               </div>
             );

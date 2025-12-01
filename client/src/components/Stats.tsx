@@ -52,7 +52,7 @@ export default function Stats() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 md:py-24 bg-card relative overflow-hidden"
+      className="py-16 md:py-24 bg-white relative overflow-hidden"
       data-testid="section-stats"
     >
       {/* Background decoration */}
@@ -68,23 +68,20 @@ export default function Stats() {
             return (
               <div
                 key={stat.id}
-                className={`group relative p-6 md:p-8 rounded-2xl bg-background/50 backdrop-blur-sm border border-primary/10 transition-all duration-500 hover:border-primary/30 hover:shadow-lg card-3d ${
+                className={`group relative p-6 md:p-8 rounded-2xl bg-muted/30 border border-border transition-all duration-300 hover:shadow-lg hover:border-primary/20 ${
                   isVisible ? "animate-fade-up" : "opacity-0"
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
                 data-testid={`stat-card-${stat.id}`}
               >
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
                 <div className="relative z-10 text-center">
                   {/* Icon */}
-                  <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-                    <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary" />
+                  <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-xl bg-primary/10 mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <Icon className="w-7 h-7 md:w-8 md:h-8 text-primary group-hover:text-white transition-colors" />
                   </div>
 
                   {/* Value */}
-                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary gold-text-glow mb-2">
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2">
                     {stat.value}
                   </div>
 
@@ -92,11 +89,6 @@ export default function Stats() {
                   <div className="text-sm md:text-base text-muted-foreground font-medium">
                     {stat.label}
                   </div>
-                </div>
-
-                {/* Corner accent */}
-                <div className="absolute top-0 left-0 w-16 h-16 overflow-hidden">
-                  <div className="absolute -top-8 -left-8 w-16 h-16 bg-primary/10 rotate-45" />
                 </div>
               </div>
             );

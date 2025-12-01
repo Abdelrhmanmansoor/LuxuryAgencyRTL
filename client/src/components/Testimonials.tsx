@@ -8,7 +8,7 @@ const testimonials: Testimonial[] = [
     id: 1,
     name: "أحمد الشمري",
     role: "صاحب متجر عطور",
-    content: "تجربة استثنائية مع فريق سليمان. صمموا لي متجر يفوق التوقعات والمبيعات تضاعفت خلال شهرين",
+    content: "تجربة استثنائية مع الفريق. صمموا لي متجر يفوق التوقعات والمبيعات تضاعفت خلال شهرين",
     rating: 5,
   },
   {
@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
     id: 4,
     name: "نورة الدوسري",
     role: "صاحبة مقهى",
-    content: "متجري الإلكتروني أصبح تحفة فنية. شكراً لفريق سليمان على الإبداع",
+    content: "متجري الإلكتروني أصبح تحفة فنية. شكراً للفريق على الإبداع",
     rating: 5,
   },
   {
@@ -86,7 +86,7 @@ export default function Testimonials() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 md:py-32 bg-background relative overflow-hidden"
+      className="py-20 md:py-32 bg-muted/30 relative overflow-hidden"
       data-testid="section-testimonials"
     >
       {/* Background decoration */}
@@ -98,8 +98,11 @@ export default function Testimonials() {
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="text-primary gold-text-glow">آراء عملائنا</span>
+          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+            آراء عملائنا
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+            ماذا يقول عملاؤنا
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             نفخر بثقة عملائنا وشهاداتهم عن تجربتهم معنا
@@ -111,14 +114,14 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.id}
-              className={`group relative p-6 rounded-2xl glass-panel-dark border border-primary/10 transition-all duration-500 hover:border-primary/30 card-3d ${
+              className={`group relative p-6 rounded-2xl bg-white border border-border transition-all duration-300 hover:shadow-lg ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 0.05}s` }}
               data-testid={`testimonial-${testimonial.id}`}
             >
               {/* Quote icon */}
-              <div className="absolute top-4 left-4 opacity-20">
+              <div className="absolute top-4 left-4 opacity-10">
                 <Quote className="w-8 h-8 text-primary" />
               </div>
 
@@ -136,7 +139,7 @@ export default function Testimonials() {
 
               {/* Author */}
               <div className="flex items-center gap-3">
-                <Avatar className="w-10 h-10 border-2 border-primary/30">
+                <Avatar className="w-10 h-10 border-2 border-primary/20">
                   <AvatarFallback className="bg-primary/10 text-primary font-bold">
                     {testimonial.name.charAt(0)}
                   </AvatarFallback>
@@ -146,9 +149,6 @@ export default function Testimonials() {
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
-
-              {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 gold-glow-sm -z-10" />
             </div>
           ))}
         </div>

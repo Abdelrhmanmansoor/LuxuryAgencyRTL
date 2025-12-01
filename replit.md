@@ -1,6 +1,6 @@
 # Overview
 
-This is a luxury Arabic (RTL) digital agency website for "سليمان" (Sulaiman), designed with a premium black and gold aesthetic. The application is a full-stack web platform showcasing services, portfolio, client testimonials, and an e-commerce store for digital products. It features a mobile-first responsive design with cinematic animations, smooth scrolling, and glass morphism effects inspired by Apple's design language.
+This is a luxury Arabic (RTL) digital agency website designed with a clean white/light background theme and gold (#F2C400) accents, inspired by makaseb.sa design aesthetic. The application is a full-stack web platform showcasing services, portfolio, client testimonials, and an e-commerce store for digital products. It features a mobile-first responsive design with smooth animations and modern, elegant styling.
 
 # User Preferences
 
@@ -20,8 +20,8 @@ Preferred communication style: Simple, everyday language.
 - Radix UI primitives for accessible, unstyled components (dialogs, dropdowns, tooltips, etc.)
 - shadcn/ui component library with "new-york" style variant
 - Tailwind CSS for utility-first styling with extensive custom theme configuration
-- Custom CSS variables for dark mode luxury theme (deep black #0A0A0A, royal gold #F2C400)
-- Glass morphism effects, soft shadows, and gold glow animations
+- Custom CSS variables for clean white/light theme with gold (#F2C400) accents
+- Subtle shadows, elegant hover effects, and smooth transitions
 
 **State Management & Data Fetching**
 - TanStack Query (React Query) for server state management, caching, and data fetching
@@ -32,8 +32,9 @@ Preferred communication style: Simple, everyday language.
 - RTL (Right-to-Left) layout for Arabic language support
 - Arabic fonts: Tajawal and Cairo from Google Fonts
 - Consistent spacing system: 8px, 16px, 24px
-- Rounded corners (12-18px), gold accents, and cinematic depth effects
-- Parallax scrolling, scroll-triggered animations, and micro-interactions
+- Clean white backgrounds with subtle gray tones and gold accents
+- Smooth scroll-triggered animations and hover effects
+- Dark footer with white logo for contrast
 
 ## Backend Architecture
 
