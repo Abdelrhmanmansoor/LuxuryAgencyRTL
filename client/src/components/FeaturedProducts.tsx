@@ -2,10 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ArrowLeft, Users, Sparkles, Check, Star } from "lucide-react";
+import { ArrowLeft, Sparkles, Check, Star, Zap } from "lucide-react";
 import type { Product } from "@shared/schema";
 
 export default function FeaturedProducts() {
@@ -37,11 +36,11 @@ export default function FeaturedProducts() {
 
   if (isLoading) {
     return (
-      <section className="py-20 md:py-28 bg-muted/30">
+      <section className="py-20 md:py-28 bg-background">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-8">
-            <Skeleton className="flex-1 aspect-video rounded-2xl" />
-            <Skeleton className="flex-1 aspect-video rounded-2xl" />
+          <div className="grid lg:grid-cols-2 gap-6">
+            <Skeleton className="aspect-[4/3] rounded-2xl bg-card" />
+            <Skeleton className="aspect-[4/3] rounded-2xl bg-card" />
           </div>
         </div>
       </section>
@@ -55,17 +54,23 @@ export default function FeaturedProducts() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 md:py-28 bg-gradient-to-b from-background to-muted/30 overflow-hidden"
+      className="py-20 md:py-28 bg-background relative overflow-hidden"
       data-testid="section-featured-products"
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-12 md:mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0 px-4 py-1.5">
-            <Sparkles className="w-4 h-4 ml-1" />
+        <div className={`text-center mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" />
             الأكثر طلباً
-          </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
             منتجات مميزة
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -76,102 +81,89 @@ export default function FeaturedProducts() {
         {/* Featured Products Grid */}
         <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
           {featuredProducts.map((product, index) => (
-            <Card
+            <div
               key={product.id}
-              className={`group relative bg-white border-border overflow-hidden card-hover ${
+              className={`group relative rounded-2xl bg-card border border-primary/20 overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover-elevate ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
               data-testid={`featured-product-${product.id}`}
             >
-              <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row">
-                  {/* Image */}
-                  <div className="relative md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                    
-                    {/* Featured badge */}
-                    <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary text-white text-sm font-medium shadow-lg">
-                      <Star className="w-4 h-4 fill-current" />
-                      مميز
-                    </div>
+              <div className="flex flex-col md:flex-row">
+                {/* Image */}
+                <div className="relative md:w-2/5 aspect-[4/3] md:aspect-auto overflow-hidden">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent md:bg-gradient-to-l" />
+                  
+                  {/* Featured badge */}
+                  <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-bold shadow-lg">
+                    <Star className="w-4 h-4 fill-current" />
+                    مميز
                   </div>
+                </div>
 
-                  {/* Content */}
-                  <div className="flex-1 p-6 md:p-8 flex flex-col">
-                    <Badge 
-                      variant="secondary" 
-                      className="w-fit mb-3 bg-primary/5 text-primary border-0"
-                    >
-                      {product.category}
-                    </Badge>
+                {/* Content */}
+                <div className="flex-1 p-6 md:p-8 flex flex-col">
+                  <Badge 
+                    variant="secondary" 
+                    className="w-fit mb-3 bg-primary/10 text-primary border-0"
+                  >
+                    {product.category}
+                  </Badge>
 
-                    <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {product.name}
-                    </h3>
+                  <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                    {product.name}
+                  </h3>
 
-                    <p className="text-muted-foreground mb-4 flex-1">
-                      {product.description}
-                    </p>
+                  <p className="text-muted-foreground mb-5 flex-1 line-clamp-2">
+                    {product.description}
+                  </p>
 
-                    {/* Features preview */}
-                    {product.features && product.features.length > 0 && (
-                      <ul className="mb-5 space-y-2">
-                        {product.features.slice(0, 3).map((feature, i) => (
-                          <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  {/* Features preview */}
+                  {product.features && product.features.length > 0 && (
+                    <ul className="mb-5 space-y-2">
+                      {product.features.slice(0, 3).map((feature, i) => (
+                        <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-3 h-3 text-primary" />
+                          </div>
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-                    {/* Price and CTA */}
-                    <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-border">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-3xl font-bold text-primary">
-                          {product.price.toLocaleString()}
-                        </span>
-                        <span className="text-sm text-muted-foreground">{product.currency}</span>
-                        {product.originalPrice && (
-                          <span className="text-sm text-muted-foreground line-through">
-                            {product.originalPrice.toLocaleString()}
-                          </span>
-                        )}
-                      </div>
-
-                      <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                          <Users className="w-4 h-4 text-primary" />
-                          <span>{product.purchaseCount}+ طلب</span>
-                        </div>
+                  {/* Price and CTA */}
+                  <div className="flex items-center justify-between pt-4 border-t border-primary/10">
+                    <div>
+                      <span className="text-sm text-muted-foreground">يبدأ من</span>
+                      <div className="text-2xl font-bold text-primary">
+                        {product.price} <span className="text-sm">{product.currency}</span>
                       </div>
                     </div>
-
-                    <Link href={`/product/${product.id}`} className="mt-5">
-                      <Button className="w-full group/btn" size="lg">
+                    <Link href={`/product/${product.id}`}>
+                      <Button className="btn-glow">
                         اطلب الآن
-                        <ArrowLeft className="w-4 h-4 mr-2 group-hover/btn:-translate-x-1 transition-transform" />
+                        <ArrowLeft className="w-4 h-4 mr-2" />
                       </Button>
                     </Link>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </div>
 
-        {/* View All Button */}
-        <div className={`text-center mt-10 ${isVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "0.3s" }}>
+        {/* View All Products */}
+        <div className={`text-center mt-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "0.3s" }}>
           <Link href="/store">
-            <Button variant="outline" size="lg" className="gap-2">
-              عرض جميع الباقات
-              <ArrowLeft className="w-4 h-4" />
+            <Button variant="outline" size="lg" className="border-primary/30 hover:bg-primary/10">
+              تصفح جميع المنتجات
+              <ArrowLeft className="w-4 h-4 mr-2" />
             </Button>
           </Link>
         </div>

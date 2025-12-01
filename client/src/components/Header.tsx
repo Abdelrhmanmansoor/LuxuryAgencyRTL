@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoImage from "@assets/Asset 1@3x_1764559327898.png";
 
@@ -43,8 +43,8 @@ export default function Header() {
       data-testid="header"
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-xl border-b border-primary/30 shadow-lg"
-          : "bg-background/90 backdrop-blur-sm"
+          ? "bg-background/95 backdrop-blur-xl border-b border-primary/20 shadow-lg shadow-primary/5"
+          : "bg-background/80 backdrop-blur-sm"
       }`}
     >
       <nav className="container mx-auto px-4 md:px-6 lg:px-8">
@@ -67,10 +67,10 @@ export default function Header() {
                 <button
                   onClick={() => handleNavClick(link.href)}
                   data-testid={`link-nav-${link.label}`}
-                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 hover-elevate ${
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     location === link.href
-                      ? "text-primary font-bold"
-                      : "text-foreground/70 hover:text-foreground"
+                      ? "text-primary bg-primary/10 font-bold"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
                 >
                   {link.label}
@@ -80,8 +80,9 @@ export default function Header() {
             <Link href="/contact">
               <Button
                 data-testid="button-cta-header"
-                className="mr-4"
+                className="mr-4 btn-glow"
               >
+                <Sparkles className="w-4 h-4 ml-2" />
                 ابدأ مشروعك
               </Button>
             </Link>
@@ -106,7 +107,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-16 md:top-20 bg-white/98 backdrop-blur-xl transition-all duration-500 ${
+        className={`lg:hidden fixed inset-0 top-16 md:top-20 bg-background/98 backdrop-blur-xl transition-all duration-500 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -119,10 +120,10 @@ export default function Header() {
                 <button
                   onClick={() => handleNavClick(link.href)}
                   data-testid={`link-mobile-nav-${link.label}`}
-                  className={`w-full text-right px-4 py-4 text-lg font-medium rounded-xl transition-all duration-300 hover-elevate ${
+                  className={`w-full text-right px-4 py-4 text-lg font-medium rounded-xl transition-all duration-300 ${
                     location === link.href
                       ? "text-primary bg-primary/10 font-bold"
-                      : "text-foreground hover:text-primary hover:bg-muted"
+                      : "text-foreground hover:text-primary hover:bg-card"
                   }`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
@@ -132,9 +133,10 @@ export default function Header() {
             ))}
             <Link href="/contact">
               <Button
-                className="w-full mt-4 h-14 text-lg"
+                className="w-full mt-4 h-14 text-lg btn-glow"
                 data-testid="button-mobile-cta"
               >
+                <Sparkles className="w-5 h-5 ml-2" />
                 ابدأ مشروعك
               </Button>
             </Link>

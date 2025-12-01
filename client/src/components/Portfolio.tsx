@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, X, Layers } from "lucide-react";
 import type { Portfolio } from "@shared/schema";
 
 const portfolioItems: Portfolio[] = [
@@ -41,7 +42,7 @@ const portfolioItems: Portfolio[] = [
     titleEn: "Real Estate Website",
     category: "موقع إلكتروني",
     categoryEn: "Website",
-    description: "موقع احترافي لشركة عقارات مع نظام بحث متقدم وعرض ثلاثي الأبعاد للعقارات",
+    description: "موقع احترافي لشركة عقارات مع نظام بحث متقدم وعرض ثلاثي الأبعاد",
     image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
     tools: ["Next.js", "Three.js", "PostgreSQL"],
   },
@@ -87,9 +88,12 @@ const portfolioItems: Portfolio[] = [
   },
 ];
 
+const categories = ["الكل", "متجر إلكتروني", "هوية بصرية", "موقع إلكتروني", "تطبيق موبايل", "منصة رقمية"];
+
 export default function Portfolio() {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Portfolio | null>(null);
+  const [activeCategory, setActiveCategory] = useState("الكل");
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -109,20 +113,31 @@ export default function Portfolio() {
     return () => observer.disconnect();
   }, []);
 
+  const filteredItems = activeCategory === "الكل" 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeCategory);
+
   return (
     <section
       id="portfolio"
       ref={sectionRef}
-      className="py-20 md:py-28 bg-background border-y border-primary/10 relative overflow-hidden"
+      className="py-20 md:py-32 bg-background relative overflow-hidden"
       data-testid="section-portfolio"
     >
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px]" />
+      </div>
+
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-12 md:mb-16 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-          <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-0 px-4 py-1.5">
+        <div className={`text-center mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+            <Layers className="w-4 h-4" />
             أعمالنا
-          </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
             مشاريع نفخر بها
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -130,34 +145,60 @@ export default function Portfolio() {
           </p>
         </div>
 
-        {/* Portfolio Grid - Clean and Light */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
-          {portfolioItems.map((project, index) => (
+        {/* Category Filter */}
+        <div className={`flex flex-wrap justify-center gap-3 mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`} style={{ animationDelay: "0.1s" }}>
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeCategory === category
+                  ? "bg-primary text-white shadow-lg shadow-primary/30"
+                  : "bg-card border border-primary/20 text-muted-foreground hover:border-primary/50 hover:text-foreground"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Portfolio Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+          {filteredItems.map((project, index) => (
             <div
               key={project.id}
-              className={`group relative rounded-xl overflow-hidden cursor-pointer bg-card border border-primary/20 shadow-sm hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 hover-elevate ${
+              className={`group relative rounded-2xl overflow-hidden cursor-pointer bg-card border border-primary/20 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 hover-elevate ${
                 isVisible ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${index * 0.04}s` }}
+              style={{ animationDelay: `${index * 0.05}s` }}
               onClick={() => setSelectedProject(project)}
               data-testid={`portfolio-item-${project.id}`}
             >
               {/* Image */}
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-[4/3] overflow-hidden relative">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* View button */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                  <div className="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                    <ExternalLink className="w-6 h-6 text-white" />
+                  </div>
+                </div>
               </div>
 
-              {/* Content - Minimal and Clean */}
-              <div className="p-4">
-                <span className="text-xs font-medium text-primary mb-1.5 block">
+              {/* Content */}
+              <div className="p-5">
+                <Badge variant="secondary" className="mb-3 bg-primary/10 text-primary border-0">
                   {project.category}
-                </span>
-                <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1">
+                </Badge>
+                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
               </div>
@@ -178,15 +219,16 @@ export default function Portfolio() {
                   alt={selectedProject.title}
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
               </div>
 
               {/* Content */}
               <div className="p-6">
                 <DialogHeader>
-                  <span className="text-sm font-medium text-primary mb-2 block">
+                  <Badge variant="secondary" className="w-fit mb-3 bg-primary/10 text-primary border-0">
                     {selectedProject.category}
-                  </span>
-                  <DialogTitle className="text-xl md:text-2xl font-bold text-foreground">
+                  </Badge>
+                  <DialogTitle className="text-2xl font-bold text-foreground">
                     {selectedProject.title}
                   </DialogTitle>
                   <DialogDescription className="sr-only">
@@ -199,8 +241,8 @@ export default function Portfolio() {
                 </p>
 
                 {/* Tools */}
-                <div className="mt-5">
-                  <h4 className="text-sm font-medium text-muted-foreground mb-2">الأدوات المستخدمة</h4>
+                <div className="mt-6">
+                  <h4 className="text-sm font-medium text-muted-foreground mb-3">الأدوات المستخدمة</h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.tools.map((tool) => (
                       <Badge key={tool} variant="secondary" className="bg-muted text-foreground border-0">
@@ -211,10 +253,10 @@ export default function Portfolio() {
                 </div>
 
                 {/* View Project Button */}
-                <button className="mt-5 inline-flex items-center gap-2 text-primary font-medium hover:underline">
-                  <span>عرض المشروع</span>
-                  <ExternalLink className="w-4 h-4" />
-                </button>
+                <Button className="mt-6 w-full" size="lg">
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                  عرض المشروع
+                </Button>
               </div>
             </>
           )}

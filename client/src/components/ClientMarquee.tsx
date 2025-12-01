@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Building2, Users } from "lucide-react";
 
 const clients = [
   { id: 1, name: "شركة النخبة" },
@@ -44,15 +45,22 @@ export default function ClientMarquee() {
     <section
       id="clients"
       ref={sectionRef}
-      className="py-16 md:py-24 bg-card/30 border-y border-primary/10 relative overflow-hidden"
+      className="py-20 md:py-28 bg-background relative overflow-hidden"
       data-testid="section-clients"
     >
+      {/* Background effects */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/4 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-secondary/5 rounded-full blur-[80px]" />
+      </div>
+
       {/* Section Header */}
-      <div className={`text-center mb-12 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
-        <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
-          شركاؤنا
-        </span>
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+      <div className={`text-center mb-12 px-4 ${isVisible ? "animate-fade-up" : "opacity-0"}`}>
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+          <Users className="w-4 h-4" />
+          شركاؤنا في النجاح
+        </div>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
           نفخر بثقة العملاء
         </h2>
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -62,10 +70,9 @@ export default function ClientMarquee() {
 
       {/* Marquee Container */}
       <div className="relative">
-        {/* Left fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-card/30 to-transparent z-10" />
-        {/* Right fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-card/30 to-transparent z-10" />
+        {/* Fade edges */}
+        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
 
         {/* Marquee track */}
         <div className="flex overflow-hidden">
@@ -74,12 +81,14 @@ export default function ClientMarquee() {
             {clients.map((client) => (
               <div
                 key={client.id}
-                className="flex-shrink-0 mx-4 md:mx-6 group animate-pulse"
-                style={{ animationDelay: `${client.id * 0.1}s` }}
+                className="flex-shrink-0 mx-3 md:mx-4"
                 data-testid={`client-logo-${client.id}`}
               >
-                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-card border border-primary/20 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-md hover:bg-primary/10">
-                  <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                <div className="px-6 py-4 flex items-center gap-3 rounded-xl bg-card border border-primary/20 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover-elevate">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Building2 className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-sm md:text-base font-medium text-foreground whitespace-nowrap">
                     {client.name}
                   </span>
                 </div>
@@ -89,11 +98,13 @@ export default function ClientMarquee() {
             {clients.map((client) => (
               <div
                 key={`dup-${client.id}`}
-                className="flex-shrink-0 mx-4 md:mx-6 group animate-pulse"
-                style={{ animationDelay: `${client.id * 0.1}s` }}
+                className="flex-shrink-0 mx-3 md:mx-4"
               >
-                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-card border border-primary/20 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-md hover:bg-primary/10">
-                  <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                <div className="px-6 py-4 flex items-center gap-3 rounded-xl bg-card border border-primary/20 transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 hover-elevate">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Building2 className="w-4 h-4 text-primary" />
+                  </div>
+                  <span className="text-sm md:text-base font-medium text-foreground whitespace-nowrap">
                     {client.name}
                   </span>
                 </div>
