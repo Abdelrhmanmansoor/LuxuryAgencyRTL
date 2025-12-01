@@ -1,0 +1,7 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
+  "env": {
+    "SESSION_SECRET": "@SESSION_SECRET"
+  }
+}
