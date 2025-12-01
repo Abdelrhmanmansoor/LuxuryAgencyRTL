@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, Sparkles, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoImage from "@assets/Asset 1@3x_1764559327898.png";
+import logoImage from "@assets/LOGO_1764566842304.png";
 
 const navLinks = [
   { href: "/", label: "الرئيسية" },

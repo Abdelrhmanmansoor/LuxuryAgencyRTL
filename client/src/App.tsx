@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import WhatsAppWidget from "@/components/WhatsAppWidget";
+import SecurityNotification from "@/components/SecurityNotification";
 import Home from "@/pages/Home";
 import Store from "@/pages/Store";
 import ProductDetail from "@/pages/ProductDetail";
@@ -27,6 +28,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <SecurityNotification />
         <Router />
         <WhatsAppWidget />
       </TooltipProvider>
