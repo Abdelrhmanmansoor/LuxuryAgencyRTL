@@ -1,0 +1,265 @@
+Create a complete, fully responsive, MOBILE-FIRST Arabic (RTL) premium website for a luxury agency named “سليمان”.
+
+Use the logo that I provided you earlier for branding.  
+Make the entire website feel extremely elegant, cinematic, luxurious, and modern.  
+Think: Apple.com smoothness + Lamborghini luxury + Black×Gold royal theme.
+
+Deliver a full exportable code project (ZIP) including:
+- Frontend (React preferred — or clean HTML/CSS/JS if needed)
+- Backend (Node.js + Express)
+- Data folder (products, portfolio, clients)
+- All assets
+- README
+- SEO-ready structure
+- Mobile-first layout
+- Smooth motion & micro-interactions
+- Advanced UI/UX quality
+- Parallax hero
+- Scroll animations
+- Gold glow effects
+- Consistent spacing system (8 / 16 / 24px)
+
+===============================
+🎨 BRANDING & DESIGN GUIDELINES
+===============================
+• Colors:
+  - Deep Black: #0A0A0A
+  - Carbon Black: #101010
+  - Pure White: #FFFFFF
+  - Royal Gold: #F2C400 (main accent)
+• Typography:
+  - Arabic premium sans-serif “Tajawal” or “Cairo”
+• Style:
+  - Smooth gold glow
+  - Soft shadows
+  - Glass black panels
+  - Cinematic depth
+  - Rounded corners (12 to 18px)
+• MOBILE FIRST ALWAYS:
+  - Design mobile → tablet → desktop
+  - Responsive grids
+  - Responsive typography
+
+===============================
+📄 PAGES REQUIRED (3 PAGES)
+===============================
+
+#######################################
+## 1) HOME PAGE (PREMIUM SHOWCASE)
+#######################################
+
+### SECTION 1 — HEADER (ULTRA CLEAN)
+- Use the logo I provided earlier
+- Transparent at top with blur-on-scroll effect
+- Links: الرئيسية – خدماتنا – أعمالنا – المتجر – عملاؤنا – تواصل معنا
+- Mobile menu (hamburger) with gold hover effect
+
+### SECTION 2 — HERO (CINEMATIC)
+- Right side: floating mockup (3D style) with soft gold shadow
+- Left side:
+  - Eyebrow: “وكالة إبداع رقمية”
+  - Title: “سليمان — نُطلق هويتك بأعلى معايير الفخامة”
+  - Subtitle:
+    “متخصصة في تصميم الهويات البصرية، برمجة المواقع، بناء المتاجر، إدارة السوشيال، وإطلاق براند كامل بنفس الجودة التي تتوقعها من وكالة عالمية.”
+  - Two buttons:
+    - Primary gold: “ابدأ مشروعك”
+    - Secondary outline: “استعرض أعمالنا”
+- Add gold particle animation in background
+- Add parallax mouse layers + smooth page transition effect
+
+### SECTION 3 — SIGNATURE STATS
+4 cards with:
+- +150 متجر متكامل
+- +90 علامة تجارية
+- +320 مشروع منفّذ
+- تقييم 4.9 من 5
+Each card has:
+- Gold icon
+- Shadow elevation
+- Hover glow
+
+### SECTION 4 — REAL PROFESSIONAL SERVICES (8 FULL CARDS)
+Title: “خدماتنا”
+Subtitle: “نقدّم حلولًا متكاملة لصناعة هوية فاخرة.”
+
+Cards (8 services):
+1. تصميم هوية بصرية كاملة  
+2. تطوير وتصميم متاجر سلة  
+3. تصميم مواقع مخصصة (UI/UX + Frontend + Backend)  
+4. تصميم صفحات هبوط عالية التحويل  
+5. إدارة حسابات السوشيال ميديا  
+6. الحملات الإعلانية (Google / Meta / TikTok)  
+7. تصوير المنتجات التجاري  
+8. إعادة بناء العلامة التجارية (Brand Refresh)
+
+Each card includes:
+- Gold icon
+- Title
+- Short description
+- “اعرف المزيد” link
+- Hover glass effect
+
+### SECTION 5 — PORTFOLIO (10 MASTER PROJECTS)
+Grid of 10 premium projects with:
+- Large images
+- Hover zoom
+- Title
+- Category
+- “عرض التفاصيل” to open modal with:
+  - Description
+  - Screenshots
+  - Tools used
+  - Design notes
+
+### SECTION 6 — CLIENT LOGOS (MOVING MARQUEE)
+Full-width, continuous, infinite RTL marquee.
+- 12–16 logos
+- Slight grayscale with gold hover
+- Smooth no-gap infinite animation
+- Logos controlled from: data/clients.json
+
+### SECTION 7 — FEATURED STORES (6 READY STORES)
+Examples:
+- متجر عطور فاخر
+- متجر قهوة مختصة
+- متجر ديكور منزلي
+- متجر أزياء راقية
+- متجر إلكترونيات
+- متجر مجوهرات
+Each card has:
+- Image
+- Gold border
+- Short description
+
+### SECTION 8 — TESTIMONIALS (8 REVIEWS)
+Grid layout with:
+- Realistic reviews
+- Customer names
+- 5-star gold rating
+- Fade-up animation
+
+### SECTION 9 — CTA STRIP (PREMIUM GOLD BAR)
+Full-width section:
+Text: “جاهز لإطلاق مشروعك مع فريق يصنع هوية لا تُنسى؟”
+Button: “ابدأ الآن”
+
+### SECTION 10 — FOOTER (ULTRA FOOTER)
+- Use the logo I sent earlier in the footer
+- Gold divider line
+- Columns:
+  • About  
+  • Quick links  
+  • Contact info  
+  • Mini contact form  
+- Social icons gold glow  
+- Dark gold gradient background
+
+#######################################
+## 2) STORE PAGE (DYNAMIC STORE)
+#######################################
+- Load product list from: /api/products
+- Each product:
+  - Image
+  - Name
+  - Description
+  - Price (SAR)
+  - Quantity selector
+  - PayPal “Buy Now” button
+- Smooth modal for product preview
+- Mobile-first grid
+
+Products to include:
+1. باقة تصميم متجر — 499 SAR  
+2. هوية بصرية كاملة — 1499 SAR  
+3. صفحة هبوط — 299 SAR  
+4. إدارة سوشيال شهر — 899 SAR  
+5. تصوير 12 منتج — 349 SAR  
+6. 20 بوست تصميم — 199 SAR  
+7. تطوير موقع Custom — 2499 SAR  
+8. باقة Google Ads — 699 SAR  
+
+#######################################
+## 3) CONTACT PAGE (ELEGANT FORM)
+#######################################
+Left:
+- Location, phone, support email  
+Right:
+- Premium form:
+  • الاسم  
+  • البريد  
+  • الرسالة  
+POST → /api/contact  
+Add gold glow button.
+
+===============================
+🛠 BACKEND (NODE.JS + EXPRESS)
+===============================
+Create backend with:
+
+Routes:
+- GET /api/products → returns products.json
+- POST /api/contact → send or log message
+- POST /api/paypal/create-order
+- POST /api/paypal/capture-order
+- POST /api/paypal/webhook
+
+Environment variables:
+- PAYPAL_CLIENT_ID
+- PAYPAL_SECRET
+- PAYPAL_MODE=sandbox
+
+Backend uses:
+- @paypal/checkout-server-sdk
+- Body parser
+- CORS enabled
+- Secure structure
+
+===============================
+💳 PAYPAL INTEGRATION (SECURE)
+===============================
+Front-end:
+Use PayPal JS SDK:
+https://www.paypal.com/sdk/js?client-id=PAYPAL_CLIENT_ID&currency=SAR
+
+Buttons:
+- createOrder → calls /api/paypal/create-order
+- onApprove → calls /api/paypal/capture-order
+
+Backend must:
+- Create order with actual price from products.json
+- Capture order securely
+- Log or store payment info
+
+===============================
+📦 DATA FOLDER
+===============================
+Create:
+- data/products.json
+- data/clients.json
+- data/portfolio.json (optional)
+
+===============================
+⚡ ADVANCED FEATURES REQUIRED
+===============================
+- Parallax motion in hero
+- Animated gold particles
+- Scroll fade-in
+- Hover 3D transform cards
+- Smoothscroll behavior
+- Lazy-loading images
+- SEO tags + Open Graph
+- Responsive spacing scale
+- Reusable components
+
+===============================
+🎁 FINAL DELIVERABLE
+===============================
+A fully exportable ZIP containing:
+- Frontend
+- Backend
+- APIs
+- JSON data
+- Assets
+- README (explaining setup and deployment)
+
+The final website must look ULTRA-PREMIUM, luxurious, cinematic, mobile-first, and perfectly aligned with the black × gold theme of the سليمان brand.
