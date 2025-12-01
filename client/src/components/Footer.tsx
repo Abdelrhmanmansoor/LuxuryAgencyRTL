@@ -14,7 +14,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { SiTiktok, SiSnapchat } from "react-icons/si";
-import logoImage from "@assets/LOGO_1764566842304.png";
+import logoImage from "@assets/لوجو_1764568508735.png";
 
 const quickLinks = [
   { href: "/", label: "الرئيسية" },

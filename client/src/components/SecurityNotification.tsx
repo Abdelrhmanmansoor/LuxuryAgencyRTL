@@ -1,16 +1,21 @@
-import { Shield, X } from "lucide-react";
+import { Shield, X, CreditCard } from "lucide-react";
 import { useState, useEffect } from "react";
 
-export default function SecurityNotification() {
-  const [isVisible, setIsVisible] = useState(true);
+interface SecurityNotificationProps {
+  showOnPayment?: boolean;
+}
+
+export default function SecurityNotification({ showOnPayment = false }: SecurityNotificationProps) {
+  const [isVisible, setIsVisible] = useState(showOnPayment);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 15000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    if (showOnPayment) {
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 15000);
+      return () => clearTimeout(timer);
+    }
+  }, [showOnPayment]);
 
   if (!isVisible) return null;
 

@@ -28,7 +28,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <SecurityNotification />
         <Router />
         <WhatsAppWidget />
       </TooltipProvider>
