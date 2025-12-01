@@ -44,7 +44,7 @@ export default function ClientMarquee() {
     <section
       id="clients"
       ref={sectionRef}
-      className="py-16 md:py-24 bg-muted/30 relative overflow-hidden"
+      className="py-16 md:py-24 bg-card/30 border-y border-primary/10 relative overflow-hidden"
       data-testid="section-clients"
     >
       {/* Section Header */}
@@ -63,9 +63,9 @@ export default function ClientMarquee() {
       {/* Marquee Container */}
       <div className="relative">
         {/* Left fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-muted/30 to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-l from-card/30 to-transparent z-10" />
         {/* Right fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-muted/30 to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-32 md:w-48 bg-gradient-to-r from-card/30 to-transparent z-10" />
 
         {/* Marquee track */}
         <div className="flex overflow-hidden">
@@ -78,7 +78,7 @@ export default function ClientMarquee() {
                 style={{ animationDelay: `${client.id * 0.1}s` }}
                 data-testid={`client-logo-${client.id}`}
               >
-                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md hover:bg-primary/5">
+                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-card border border-primary/20 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-md hover:bg-primary/10">
                   <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {client.name}
                   </span>
@@ -92,7 +92,7 @@ export default function ClientMarquee() {
                 className="flex-shrink-0 mx-4 md:mx-6 group animate-pulse"
                 style={{ animationDelay: `${client.id * 0.1}s` }}
               >
-                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-white border border-border transition-all duration-300 group-hover:border-primary/30 group-hover:shadow-md hover:bg-primary/5">
+                <div className="px-6 py-3 flex items-center justify-center rounded-xl bg-card border border-primary/20 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-md hover:bg-primary/10">
                   <span className="text-sm md:text-base font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
                     {client.name}
                   </span>

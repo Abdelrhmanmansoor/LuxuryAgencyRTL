@@ -153,7 +153,7 @@ export default function ProductDetail() {
                   className="w-full aspect-video object-cover"
                 />
                 {/* Purchase counter badge */}
-                <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-sm shadow-sm">
+                <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1.5 rounded-full bg-card/95 backdrop-blur-sm border border-primary/20 shadow-sm">
                   <Users className="w-4 h-4 text-primary" />
                   <span className="text-sm font-medium text-foreground">
                     تم شراؤه {product.purchaseCount} مرة

@@ -52,7 +52,7 @@ export default function Store() {
           {isLoading ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
               {[...Array(8)].map((_, i) => (
-                <Card key={i} className="bg-white border-border overflow-hidden">
+                <Card key={i} className="bg-card border-primary/20 overflow-hidden">
                   <Skeleton className="aspect-[4/3]" />
                   <div className="p-5">
                     <Skeleton className="h-5 w-24 mb-3" />
@@ -69,7 +69,7 @@ export default function Store() {
               {products?.map((product, index) => (
                 <Link key={product.id} href={`/product/${product.id}`}>
                   <Card
-                    className="group bg-white border-border card-hover cursor-pointer overflow-hidden h-full"
+                    className="group bg-card border-primary/20 card-hover cursor-pointer overflow-hidden h-full hover-elevate"
                     style={{ animationDelay: `${index * 0.05}s` }}
                     data-testid={`product-card-${product.id}`}
                   >
@@ -85,7 +85,7 @@ export default function Store() {
                         {/* Category badge */}
                         <Badge 
                           variant="secondary" 
-                          className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-foreground border-0 shadow-sm"
+                          className="absolute top-3 right-3 bg-card/90 backdrop-blur-sm text-foreground border-primary/30 shadow-sm"
                         >
                           {product.category}
                         </Badge>
@@ -99,7 +99,7 @@ export default function Store() {
                         )}
 
                         {/* Purchase counter */}
-                        <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-sm text-xs font-medium text-foreground shadow-sm">
+                        <div className="absolute bottom-3 right-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-card/90 backdrop-blur-sm text-xs font-medium text-foreground border border-primary/20 shadow-sm">
                           <Users className="w-3.5 h-3.5 text-primary" />
                           <span>تم شراؤه {product.purchaseCount} مرة</span>
                         </div>
